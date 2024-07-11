@@ -14,7 +14,25 @@ class MainTabBarController: UITabBarController {
         self.setupTabs()
         
         let appearance = UITabBarAppearance()
+        //appearance.backgroundColor = UIColor.black
+        
         appearance.configureWithOpaqueBackground()
+
+        appearance.backgroundColor = UIColor.black
+            
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.white
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(named: "defaultButtonColor")
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "defaultButtonColor")!]
+
+
+        
+
+            
+        
+        // в таком случае сливается
+        //appearance.backgroundColor = UIColor(named: "background")
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
     }
