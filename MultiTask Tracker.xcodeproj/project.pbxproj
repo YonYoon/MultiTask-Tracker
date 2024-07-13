@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		155559D22C357660004AAF2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D12C357660004AAF2F /* AppDelegate.swift */; };
 		155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D32C357660004AAF2F /* SceneDelegate.swift */; };
+		155559D62C357660004AAF2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* ViewController.swift */; };
 		155559DB2C357661004AAF2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155559DA2C357661004AAF2F /* Assets.xcassets */; };
 		155559DE2C357661004AAF2F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 155559DD2C357661004AAF2F /* Base */; };
 		A6BB45912C3EC5CA00B22ABD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45902C3EC5CA00B22ABD /* HomeViewController.swift */; };
@@ -23,6 +24,8 @@
 		155559CE2C357660004AAF2F /* MultiTask Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiTask Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		155559D12C357660004AAF2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		155559D32C357660004AAF2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		155559D52C357660004AAF2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+
 		155559DA2C357661004AAF2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155559DD2C357661004AAF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
 				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
 				A6BB45982C3EC67D00B22ABD /* AccountViewController.swift */,
+				155559D52C357660004AAF2F /* ViewController.swift */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
 				155559DF2C357661004AAF2F /* Info.plist */,
@@ -318,6 +322,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -349,6 +354,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
