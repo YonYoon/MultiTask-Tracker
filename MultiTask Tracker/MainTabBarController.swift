@@ -14,48 +14,32 @@ class MainTabBarController: UITabBarController {
         self.setupTabs()
         
         let appearance = UITabBarAppearance()
-        //appearance.backgroundColor = UIColor.black
         
         appearance.configureWithOpaqueBackground()
 
-        appearance.backgroundColor = UIColor.black
-            
-        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.white
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
-        
-        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(named: "defaultButtonColor")
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "defaultButtonColor")!]
-
-
-        
-
-            
-        
-        // в таком случае сливается
-        //appearance.backgroundColor = UIColor(named: "background")
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
     }
     
-    // MARK: - Tab Setup
-    private func setupTabs(){
-        let home = self.createNav(with: "Home", and: UIImage(named: "homePic"), vc: HomeViewController())
-        let statistic = self.createNav(with: "Statistic", and: UIImage(named: "statisticPic"), vc: StatisticViewController())
-        let toDo = self.createNav(with: "ToDo", and: UIImage(named: "toDoPic"), vc: ToDoViewController())
-        let friends = self.createNav(with: "Friends", and: UIImage(named: "friendsPic"), vc: FriendsViewController())
-        let account = self.createNav(with: "Account", and: UIImage(named: "accountPic"), vc: AccountViewController())
-        
-        self.setViewControllers([home,statistic,toDo,friends,account], animated: true)
-    }
-    
-    private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
-        let nav = UINavigationController(rootViewController: vc)
+    private func createNavigaiontController(title: String, image: UIImage?, viewController: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: viewController)
         
         nav.tabBarItem.title = title
         nav.tabBarItem.image = image
         
         return nav
     }
+    
+    private func setupTabs() {
+        let home = self.createNavigaiontController(title: "Home", image: UIImage(named: "homePic"), viewController: HomeViewController())
+        let statistic = self.createNavigaiontController(title: "Statistic", image: UIImage(named: "statisticPic"), viewController: StatisticViewController())
+        let toDo = self.createNavigaiontController(title: "ToDo", image: UIImage(named: "toDoPic"), viewController: ToDoViewController())
+        let friends = self.createNavigaiontController(title: "Friends", image: UIImage(named: "friendsPic"), viewController: FriendsViewController())
+        let account = self.createNavigaiontController(title: "Account", image: UIImage(named: "accountPic"), viewController: AccountViewController())
+        
+        self.setViewControllers([home,statistic,toDo,friends,account], animated: true)
+    }
+    
 }
 
 
