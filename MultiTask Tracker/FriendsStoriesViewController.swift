@@ -8,22 +8,35 @@
 import UIKit
 
 class FriendsStoriesViewController: UIViewController {
+    let stackView = UIStackView()
+    let story1 = StoriesView()
+    let story2 = StoriesView()
+    let story3 = StoriesView()
+    let story4 = StoriesView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configure()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configure() {
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        
+        stackView.addArrangedSubview(story1)
+        stackView.addArrangedSubview(story2)
+        stackView.addArrangedSubview(story3)
+        stackView.addArrangedSubview(story4)
+        
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 73)
+        ])
     }
-    */
-
 }
