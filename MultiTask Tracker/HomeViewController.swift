@@ -8,26 +8,54 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var notificationsButton = UIButton()
+    var storiesView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background")
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
-        setGlow()
-        setStoriesBord()
-        setStories()
-        setSquare()
-        setBell()
-        setTextList()
-        setButton(btnColor: "whiteButtonColor", btnTextColor: .black, btnText: "Plans", btnLBorder: 32, btnRBorder: -210, btnBotLength: 176)
-        setButton(btnColor: "whiteButtonColor", btnTextColor: .black, btnText: "Achievements", btnLBorder: 210, btnRBorder: -32, btnBotLength: 176)
-        setButton(btnColor: "defaultButtonColor", btnTextColor: .white, btnText: "Birthdays", btnLBorder: 32, btnRBorder: -210, btnBotLength: 325)
-        setButton(btnColor: "defaultButtonColor", btnTextColor: .white, btnText: "Shopping list", btnLBorder: 210, btnRBorder: -32, btnBotLength: 325)
-        setButton(btnColor: "defaultButtonColor", btnTextColor: .white, btnText: "Debt list", btnLBorder: 32, btnRBorder: -210, btnBotLength: 415)
-        setButton(btnColor: "defaultButtonColor", btnTextColor: .white, btnText: "+", btnLBorder: 210, btnRBorder: -32, btnBotLength: 415)
+        configureNotificationsButton()
+        configureStoriesView()
     }
     
+    // TODO: - Add target
+    private func configureNotificationsButton() {
+        let size: CGFloat = 25
+        
+        view.addSubview(notificationsButton)
+        notificationsButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        notificationsButton.setBackgroundImage(UIImage(named: "bell"), for: .normal)
+        
+        NSLayoutConstraint.activate([
+            notificationsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+            notificationsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
+            notificationsButton.heightAnchor.constraint(equalToConstant: size),
+            notificationsButton.widthAnchor.constraint(equalToConstant: size)
+        ])
+    }
     
+    private func configureStoriesView() {
+        let padding: CGFloat = 20
+        
+        view.addSubview(storiesView)
+        storiesView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            storiesView.topAnchor.constraint(equalTo: notificationsButton.bottomAnchor, constant: 15),
+            storiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            storiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            storiesView.heightAnchor.constraint(equalToConstant: 73)
+        ])
+        
+        let friendsStoriesViewController = FriendsStoriesViewController()
+        addChild(friendsStoriesViewController)
+        storiesView.addSubview(friendsStoriesViewController.view)
+        friendsStoriesViewController.view.frame = storiesView.bounds
+        friendsStoriesViewController.didMove(toParent: self)
+    }
     
     private lazy var textStack: UIStackView = {
         let stack = UIStackView()
@@ -65,11 +93,11 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func setBell() {
-        view.addSubview(bell)
-        bell.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -35).isActive = true
-        bell.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,constant: -40).isActive = true
-    }
+//    private func setBell() {
+//        view.addSubview(bell)
+//        bell.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -35).isActive = true
+//        bell.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,constant: -40).isActive = true
+//    }
     
     private func setSquare() {
         let square1 = createRectangle(frame: CGRect(x: view.frame.width-380, y: 188, width: 370, height: 97))
@@ -161,16 +189,6 @@ class HomeViewController: UIViewController {
         glow.heightAnchor.constraint(equalToConstant: view.frame.height/6).isActive = true
         glow.widthAnchor.constraint(equalToConstant: view.frame.height/3).isActive = true
         return glow
-    }()
-    
-    private lazy var bell: UIImageView = {
-        let bell = UIImageView()
-        bell.image = UIImage (named: "bell")
-        bell.contentMode = .scaleToFill
-        bell.translatesAutoresizingMaskIntoConstraints = false
-        bell.heightAnchor.constraint(equalToConstant: view.frame.height/30).isActive = true
-        bell.widthAnchor.constraint(equalToConstant: view.frame.height/30).isActive = true
-        return bell
     }()
     
     private func createRectangle(frame: CGRect) -> UIView {
