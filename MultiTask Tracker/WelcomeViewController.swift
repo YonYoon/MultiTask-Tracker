@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WelcomeViewController.swift
 //  MultiTask Tracker
 //
 //  Created by Zhansen Zhalel on 03.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
 
     override func viewDidLoad() {
@@ -37,5 +37,5 @@ class ViewController: UIViewController {
 }
 
 #Preview {
-    ViewController().view
+    WelcomeViewController().view
 }
