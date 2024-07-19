@@ -11,6 +11,7 @@ class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
     let welcomeImageView = UIImageView(image: UIImage(named: "welcomeImage"))
     let nameField = UITextField()
+    let saveButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class WelcomeViewController: UIViewController {
         configureWelcomeMessageLabel()
         configureWelcomeImage()
         configureNameField()
+        configureSaveButton()
     }
     
     func configureWelcomeMessageLabel() {
@@ -78,6 +80,24 @@ class WelcomeViewController: UIViewController {
             nameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
             nameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
             nameField.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
+    
+    func configureSaveButton() {
+        view.addSubview(saveButton)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        saveButton.backgroundColor = .accent
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        saveButton.layer.cornerRadius = 25
+        saveButton.setTitleColor(.white, for: .normal)
+        
+        NSLayoutConstraint.activate([
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -69),
+            saveButton.heightAnchor.constraint(equalToConstant: 46),
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
 }
