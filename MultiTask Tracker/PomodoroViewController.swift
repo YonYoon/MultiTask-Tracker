@@ -5,14 +5,16 @@
 //  Created by Алексей Волков on 21.07.2024.
 //
 
-import SwiftUI
+import UIKit
 
-struct PomodoroViewController: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class PomodoroViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .systemRed
+        
+        
     }
 }
 
-#Preview {
-    PomodoroViewController()
-}
