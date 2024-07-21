@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  CalendarViewController.swift
 //  MultiTask Tracker
 //
 //  Created by Алексей Волков on 10.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class CalendarViewController: UIViewController {
     var notificationsButton = UIButton()
     var storiesView = UIView()
     
