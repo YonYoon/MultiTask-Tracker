@@ -1,13 +1,13 @@
 //
-//  HomeViewController.swift
+//  CalendarViewController.swift
 //  MultiTask Tracker
 //
-//  Created by Алексей Волков on 10.07.2024.
+//  Created by Алексей Волков on 21.07.2024.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class CalendarViewController: UIViewController {
     var notificationsButton = UIButton()
     var storiesView = UIView()
     
@@ -42,9 +42,14 @@ class HomeViewController: UIViewController {
         setTextList(text: "mood", сolor: UIColor(named: "AccentColor")!, constraintTop: 20, constraintLeading: 202)
         setTextList(text: "today", сolor: .white, constraintTop: 20, constraintLeading: 284)
     }
+    
+    private func CalendarView(){
+        
+        
+        
+    }
+    
+    
+    
+    
 }
-    
-    
-    
-
-
