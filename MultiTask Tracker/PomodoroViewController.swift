@@ -1,5 +1,5 @@
 //
-//  StatisticViewController.swift
+//  PomodoroViewController.swift
 //  MultiTask Tracker
 //
 //  Created by Алексей Волков on 10.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatisticViewController: UIViewController {
+class PomodoroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
