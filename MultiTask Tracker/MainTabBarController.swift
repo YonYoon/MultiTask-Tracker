@@ -21,23 +21,21 @@ class MainTabBarController: UITabBarController {
         tabBar.scrollEdgeAppearance = appearance
     }
     
-    private func createNavigaiontController(title: String, image: UIImage?, viewController: UIViewController) -> UINavigationController {
+    private func createNavigaiontController(image: UIImage?, viewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: viewController)
-        
-        nav.tabBarItem.title = title
+
         nav.tabBarItem.image = image
         
         return nav
     }
     
     private func setupTabs() {
-        let home = self.createNavigaiontController(title: "Home", image: UIImage(named: "homePic"), viewController: HomeViewController())
-        let statistics = self.createNavigaiontController(title: "Statistics", image: UIImage(named: "statisticPic"), viewController: PomodoroViewController())
-        let toDo = self.createNavigaiontController(title: "ToDo", image: UIImage(named: "toDoPic"), viewController: ToDoViewController())
-        let friends = self.createNavigaiontController(title: "Friends", image: UIImage(named: "friendsPic"), viewController: FriendsViewController())
-        let account = self.createNavigaiontController(title: "Account", image: UIImage(named: "accountPic"), viewController: AccountViewController())
+        let toDo = self.createNavigaiontController(image: UIImage(named: "toDoPic"), viewController: ToDoViewController())
+        let pomodoro = self.createNavigaiontController(image: UIImage(named: "pomodoroPic"), viewController: PomodoroViewController())
+        let friends = self.createNavigaiontController(image: UIImage(named: "friendsPic"), viewController: FriendsViewController())
+        let profile = self.createNavigaiontController(image: UIImage(named: "profilePic"), viewController: ProfileViewController())
         
-        self.setViewControllers([home, statistics, toDo, friends, account], animated: true)
+        self.setViewControllers([toDo, pomodoro, friends, profile], animated: true)
     }
     
 }
