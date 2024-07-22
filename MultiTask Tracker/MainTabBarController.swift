@@ -31,13 +31,11 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupTabs() {
-        let home = self.createNavigaiontController(title: "Home", image: UIImage(named: "homePic"), viewController: HomeViewController())
-        let statistics = self.createNavigaiontController(title: "Statistics", image: UIImage(named: "statisticPic"), viewController: StatisticViewController())
         let toDo = self.createNavigaiontController(title: "ToDo", image: UIImage(named: "toDoPic"), viewController: ToDoViewController())
         let friends = self.createNavigaiontController(title: "Friends", image: UIImage(named: "friendsPic"), viewController: FriendsViewController())
         let account = self.createNavigaiontController(title: "Account", image: UIImage(named: "accountPic"), viewController: ProfileViewController())
         
-        self.setViewControllers([home, statistics, toDo, friends, account], animated: true)
+        self.setViewControllers([toDo, friends, account], animated: true)
     }
     
 }
