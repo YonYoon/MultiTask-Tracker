@@ -11,7 +11,6 @@
 		155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D32C357660004AAF2F /* SceneDelegate.swift */; };
 		155559DB2C357661004AAF2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155559DA2C357661004AAF2F /* Assets.xcassets */; };
 		155559DE2C357661004AAF2F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 155559DD2C357661004AAF2F /* Base */; };
-		15A38A8F2C453F0700A9CA0E /* FriendsStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A38A8E2C453F0700A9CA0E /* FriendsStoriesViewController.swift */; };
 		15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* WelcomeViewController.swift */; };
 		A6BB45912C3EC5CA00B22ABD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45902C3EC5CA00B22ABD /* HomeViewController.swift */; };
 		A6BB45932C3EC63D00B22ABD /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45922C3EC63D00B22ABD /* StatisticViewController.swift */; };
@@ -29,7 +28,6 @@
 		155559DA2C357661004AAF2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155559DD2C357661004AAF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15A38A8E2C453F0700A9CA0E /* FriendsStoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsStoriesViewController.swift; sourceTree = "<group>"; };
 		A6BB45902C3EC5CA00B22ABD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6BB45922C3EC63D00B22ABD /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 				155559D32C357660004AAF2F /* SceneDelegate.swift */,
 				A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */,
 				A6BB45902C3EC5CA00B22ABD /* HomeViewController.swift */,
-				15A38A8E2C453F0700A9CA0E /* FriendsStoriesViewController.swift */,
 				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
 				A6BB45922C3EC63D00B22ABD /* StatisticViewController.swift */,
 				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
@@ -160,7 +157,6 @@
 				A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */,
 				A6BB45992C3EC67D00B22ABD /* AccountViewController.swift in Sources */,
 				155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */,
-				15A38A8F2C453F0700A9CA0E /* FriendsStoriesViewController.swift in Sources */,
 				A6BB45932C3EC63D00B22ABD /* StatisticViewController.swift in Sources */,
 				A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */,
 				A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */,
