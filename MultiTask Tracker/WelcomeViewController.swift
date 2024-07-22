@@ -33,7 +33,6 @@ class WelcomeViewController: UIViewController {
         welcomeMessageLabel.adjustsFontForContentSizeCategory = true
         welcomeMessageLabel.numberOfLines = 2
         
-        
         NSLayoutConstraint.activate([
             welcomeMessageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 39),
             welcomeMessageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
