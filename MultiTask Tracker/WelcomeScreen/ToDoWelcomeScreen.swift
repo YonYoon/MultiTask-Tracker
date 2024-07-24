@@ -28,6 +28,7 @@ class ToDoWelcomeScreen: UIViewController {
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = .label
         view.addSubview(label)
         
         NSLayoutConstraint.activate([
@@ -40,10 +41,11 @@ class ToDoWelcomeScreen: UIViewController {
     
     private func createText2Label(text: String, size: Double) {
         let attributedText = NSMutableAttributedString(string: text)
-        attributedText.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: 4))
+        attributedText.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: 4))
         attributedText.addAttribute(.foregroundColor, value: UIColor(named: "AccentColor")!, range: NSRange(location: 5, length: 5))
-        attributedText.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 11, length: 4))
+        attributedText.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 11, length: 4))
         
+    
         let label = UILabel()
         label.attributedText = attributedText
         label.font = UIFont.systemFont(ofSize: size)
@@ -71,8 +73,6 @@ class ToDoWelcomeScreen: UIViewController {
         
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 
-        
-        
         NSLayoutConstraint.activate([
             button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 92),
@@ -80,11 +80,11 @@ class ToDoWelcomeScreen: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 75)
         ])
     }
+    
+    // При нажатии открывает основную страницу ToDo
         @objc func buttonTapped() {
-                // Создаем экземпляр следующего ViewController
-                let nextViewController = ToDoViewController() // Замените SecondViewController на имя вашего следующего ViewController
+                let nextViewController = ToDoViewController()
 
-                // Переходим к следующему ViewController
-                navigationController?.pushViewController(nextViewController, animated: true) // Используем navigationController, если он есть
+                navigationController?.pushViewController(nextViewController, animated: true)
             }
 }

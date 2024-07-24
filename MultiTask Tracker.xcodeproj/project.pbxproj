@@ -13,6 +13,7 @@
 		155559DE2C357661004AAF2F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 155559DD2C357661004AAF2F /* Base */; };
 		15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* WelcomeViewController.swift */; };
 		A6185B662C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185B652C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift */; };
+		A6185B682C4FC93300A3EBB4 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185B672C4FC93300A3EBB4 /* RegisterTextField.swift */; };
 		A6BB45932C3EC63D00B22ABD /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45922C3EC63D00B22ABD /* PomodoroViewController.swift */; };
 		A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */; };
 		A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */; };
@@ -29,6 +30,7 @@
 		155559DD2C357661004AAF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6185B652C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoWelcomeScreen.swift; sourceTree = "<group>"; };
+		A6185B672C4FC93300A3EBB4 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		A6BB45922C3EC63D00B22ABD /* PomodoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
 		A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				A6BB45922C3EC63D00B22ABD /* PomodoroViewController.swift */,
 				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
 				A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */,
+				A6185B692C50127B00A3EBB4 /* ToDoFunc */,
 				A6185B642C4E9C1500A3EBB4 /* WelcomeScreen */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
@@ -88,6 +91,14 @@
 				A6185B652C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		A6185B692C50127B00A3EBB4 /* ToDoFunc */ = {
+			isa = PBXGroup;
+			children = (
+				A6185B672C4FC93300A3EBB4 /* RegisterTextField.swift */,
+			);
+			path = ToDoFunc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 			files = (
 				15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */,
 				155559D22C357660004AAF2F /* AppDelegate.swift in Sources */,
+				A6185B682C4FC93300A3EBB4 /* RegisterTextField.swift in Sources */,
 				A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */,
 				A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */,
 				A6185B662C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift in Sources */,
