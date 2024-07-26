@@ -8,22 +8,54 @@
 import UIKit
 
 class FriendsGuideViewController: UIViewController {
-
+    let descriptionLabel = UILabel()
+    let goButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        
+        configureDescriptionLabel()
+        configureGoButton()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // TODO: - Add attributed strings
+    // TODO: - Change font weight, preserve dynamic type
+    private func configureDescriptionLabel() {
+        view.addSubview(descriptionLabel)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        descriptionLabel.attributedText = NSAttributedString(string: "Add new friends\nShare your achievements\nHave fun")
+        
+        descriptionLabel.numberOfLines = 3
+        descriptionLabel.textAlignment = .natural
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        descriptionLabel.adjustsFontSizeToFitWidth = true
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 215),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 100),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 345)
+        ])
     }
-    */
-
+    
+    // TODO: - Add target
+    private func configureGoButton() {
+        view.addSubview(goButton)
+        goButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        goButton.setTitle("Let's go!", for: .normal)
+        goButton.backgroundColor = UIColor.accent
+        goButton.layer.cornerRadius = 10
+        goButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        
+        NSLayoutConstraint.activate([
+            goButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
+            goButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goButton.heightAnchor.constraint(equalToConstant: 50),
+            goButton.widthAnchor.constraint(equalToConstant: 210)
+        ])
+    }
 }
