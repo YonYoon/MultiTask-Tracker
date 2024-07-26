@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
     let welcomeImageView = UIImageView(image: UIImage(named: "welcomeImage"))
-    let nameField = UITextField()
+    let emailField = UITextField()
+    let passwordField = UITextField()
     let saveButton = UIButton()
+    var user: User? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,7 @@ class WelcomeViewController: UIViewController {
         configureWelcomeMessageLabel()
         configureWelcomeImage()
         configureNameField()
+        configurePasswordField()
         configureSaveButton()
     }
     
@@ -56,29 +60,58 @@ class WelcomeViewController: UIViewController {
     
     // FIXME: - Text field is hidden under the keyboard
     func configureNameField() {
-        view.addSubview(nameField)
-        nameField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emailField)
+        emailField.translatesAutoresizingMaskIntoConstraints = false
         
-        nameField.layer.cornerRadius = 25
-        nameField.layer.borderWidth = 3
+        emailField.layer.cornerRadius = 25
+        emailField.layer.borderWidth = 3
         // FIXME: - Border color doesn't change with theme
-        nameField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
+        emailField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
         
-        nameField.textColor = .label
-        nameField.textAlignment = .center
-        nameField.font = UIFont.preferredFont(forTextStyle: .title3)
-        nameField.adjustsFontSizeToFitWidth = true
-        nameField.minimumFontSize = 12
+        emailField.autocapitalizationType = .none
+        emailField.textColor = .label
+        emailField.textAlignment = .center
+        emailField.font = UIFont.preferredFont(forTextStyle: .title3)
+        emailField.adjustsFontSizeToFitWidth = true
+        emailField.minimumFontSize = 12
         
-        nameField.autocorrectionType = .no
-        nameField.returnKeyType = .done
-        nameField.placeholder = "Enter your name"
+        emailField.autocorrectionType = .no
+        emailField.returnKeyType = .done
+        emailField.placeholder = "Enter your email"
         
         NSLayoutConstraint.activate([
-            nameField.topAnchor.constraint(equalTo: welcomeImageView.bottomAnchor, constant: 48),
-            nameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
-            nameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
-            nameField.heightAnchor.constraint(equalToConstant: 55)
+            emailField.topAnchor.constraint(equalTo: welcomeImageView.bottomAnchor, constant: 48),
+            emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
+            emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
+            emailField.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
+    
+    func configurePasswordField() {
+        view.addSubview(passwordField)
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        
+        passwordField.layer.cornerRadius = 25
+        passwordField.layer.borderWidth = 3
+        // FIXME: - Border color doesn't change with theme
+        passwordField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
+        
+        passwordField.autocapitalizationType = .none
+        passwordField.textColor = .label
+        passwordField.textAlignment = .center
+        passwordField.font = UIFont.preferredFont(forTextStyle: .title3)
+        passwordField.adjustsFontSizeToFitWidth = true
+        passwordField.minimumFontSize = 12
+        
+        passwordField.autocorrectionType = .no
+        passwordField.returnKeyType = .done
+        passwordField.placeholder = "Enter your password"
+        
+        NSLayoutConstraint.activate([
+            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15),
+            passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
+            passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
+            passwordField.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
     
@@ -87,10 +120,12 @@ class WelcomeViewController: UIViewController {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         saveButton.backgroundColor = .accent
-        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitle("Login", for: .normal)
         saveButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         saveButton.layer.cornerRadius = 25
         saveButton.setTitleColor(.white, for: .normal)
+        
+        saveButton.addTarget(self, action: #selector(authenticate), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
@@ -99,9 +134,24 @@ class WelcomeViewController: UIViewController {
             saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
+    
+    @objc private func authenticate() {
+        Auth.auth().signIn(withEmail: emailField.text ?? "", password: passwordField.text ?? "") { [weak self] authResult, error in
+            guard let self else { return }
+            
+            if let error = error {
+                print("Failed to sign in: \(error.localizedDescription)")
+                return
+            }
+            
+            if let authResult = authResult {
+                print("User signed in: \(authResult.user.email ?? "No Email")")
+                user = authResult.user
+            }
+        }
+    }
 }
 
 #Preview {
-    let viewController = WelcomeViewController()
-    return viewController.view
+    WelcomeViewController().view
 }
