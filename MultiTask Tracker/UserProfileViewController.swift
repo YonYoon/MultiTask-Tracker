@@ -8,22 +8,28 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
-
+    var user: MTUser!
+    let nameLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .systemBackground
+        configureProfile()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureProfile() {
+        view.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        nameLabel.text = user.name
+        nameLabel.textAlignment = .center
+        
+        NSLayoutConstraint.activate([
+            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            nameLabel.widthAnchor.constraint(equalToConstant: view.frame.width),
+            nameLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
-    */
-
 }
