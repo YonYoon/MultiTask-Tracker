@@ -22,6 +22,7 @@
 		15CE6A982C52988400459D01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15CE6A972C52988300459D01 /* GoogleService-Info.plist */; };
 		15CE6A9A2C535DC800459D01 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A992C535DC800459D01 /* FirebaseAuth */; };
 		15CE6A9C2C53820100459D01 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE6A9B2C53820100459D01 /* AuthenticationManager.swift */; };
+		15CE8EF32C54E28E0007761F /* MTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE8EF22C54E28E0007761F /* MTTextField.swift */; };
 		A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */; };
 		A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */; };
 		A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */; };
@@ -43,6 +44,7 @@
 		15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		15CE6A972C52988300459D01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15CE6A9B2C53820100459D01 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		15CE8EF22C54E28E0007761F /* MTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTextField.swift; sourceTree = "<group>"; };
 		A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */,
 				A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */,
 				15CE6A912C522F8E00459D01 /* MTUser.swift */,
+				15CE8EF22C54E28E0007761F /* MTTextField.swift */,
 				15CE8EF12C54E1D10007761F /* Managers */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
@@ -210,6 +213,7 @@
 				A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */,
 				15CE6A922C522F8E00459D01 /* MTUser.swift in Sources */,
 				15CE6A942C523B6800459D01 /* PersistenceManager.swift in Sources */,
+				15CE8EF32C54E28E0007761F /* MTTextField.swift in Sources */,
 				A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
