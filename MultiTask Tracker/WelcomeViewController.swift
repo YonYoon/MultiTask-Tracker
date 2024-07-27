@@ -136,17 +136,25 @@ class WelcomeViewController: UIViewController {
     }
     
     @objc private func authenticate() {
-        Auth.auth().signIn(withEmail: emailField.text ?? "", password: passwordField.text ?? "") { [weak self] authResult, error in
-            guard let self else { return }
+        guard let email = emailField.text, !email.isEmpty, let password = passwordField.text, !password.isEmpty else {
+            print("No email and/or password")
+            let alertController = UIAlertController(title: "Error", message: "Please write your email and password to login", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+            return
+        }
+        
+        Task {
+            let isAuthenticated = await AuthenticationManager.shared.signInWith(email: email, password: password)
             
-            if let error = error {
-                print("Failed to sign in: \(error.localizedDescription)")
-                return
-            }
-            
-            if let authResult = authResult {
-                print("User signed in: \(authResult.user.email ?? "No Email")")
-                user = authResult.user
+            if isAuthenticated {
+                let mainTabBarController = MainTabBarController()
+                mainTabBarController.modalPresentationStyle = .fullScreen
+                self.present(mainTabBarController, animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: "Your info is invalid or you don't have an account", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true)
             }
         }
     }
