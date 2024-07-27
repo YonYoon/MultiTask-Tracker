@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController {
         welcomeMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         welcomeMessageLabel.text = "🎉Welcome to Multitask Tracker"
         welcomeMessageLabel.textAlignment = .center
-        // FIXME: - Label doesn't support dynamic type
+        // FIXME: Add support for dynamic type
         welcomeMessageLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         welcomeMessageLabel.adjustsFontForContentSizeCategory = true
         welcomeMessageLabel.numberOfLines = 2
@@ -58,14 +58,14 @@ class WelcomeViewController: UIViewController {
         ])
     }
     
-    // FIXME: - Text field is hidden under the keyboard
+    // FIXME: Text field is hidden under the keyboard
     func configureNameField() {
         view.addSubview(emailField)
         emailField.translatesAutoresizingMaskIntoConstraints = false
         
         emailField.layer.cornerRadius = 25
         emailField.layer.borderWidth = 3
-        // FIXME: - Border color doesn't change with theme
+        // FIXME: Border color doesn't change with theme
         emailField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
         
         emailField.autocapitalizationType = .none
@@ -93,7 +93,7 @@ class WelcomeViewController: UIViewController {
         
         passwordField.layer.cornerRadius = 25
         passwordField.layer.borderWidth = 3
-        // FIXME: - Border color doesn't change with theme
+        // FIXME: Border color doesn't change with theme
         passwordField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
         
         passwordField.autocapitalizationType = .none
