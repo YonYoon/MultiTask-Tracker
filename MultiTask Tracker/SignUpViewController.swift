@@ -12,6 +12,7 @@ class SignUpViewController: UIViewController {
     var emailField = UITextField()
     var passwordField = UITextField()
     var confirmPasswordField = UITextField()
+    var signUpButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class SignUpViewController: UIViewController {
         configureEmailField()
         configurePasswordField()
         configureConfirmPasswordField()
+        configureSignUpButton()
     }
     
     private func configureNameField() {
@@ -54,6 +56,7 @@ class SignUpViewController: UIViewController {
         view.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         
+        textField.autocapitalizationType = .none
         textField.borderStyle = .roundedRect
         textField.placeholder = placeholderText
         
@@ -62,6 +65,50 @@ class SignUpViewController: UIViewController {
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
+    }
+    
+    private func configureSignUpButton() {
+        view.addSubview(signUpButton)
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        signUpButton.backgroundColor = .accent
+        signUpButton.setTitle("Sign up", for: .normal)
+        signUpButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        signUpButton.layer.cornerRadius = 25
+        signUpButton.setTitleColor(.white, for: .normal)
+        
+        signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
+            signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -69),
+            signUpButton.heightAnchor.constraint(equalToConstant: 46),
+            signUpButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+        ])
+    }
+    
+    @objc private func signUp() {
+        guard let email = emailField.text, !email.isEmpty, let password = passwordField.text, !password.isEmpty else {
+            print("No email and/or password")
+            let alertController = UIAlertController(title: "Error", message: "Please write your email and password to login", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+            return
+        }
+        
+        Task {
+            let isAuthenticated = await AuthenticationManager.shared.signUpWith(email: email, password: password)
+            
+            if isAuthenticated {
+                let mainTabBarController = MainTabBarController()
+                mainTabBarController.modalPresentationStyle = .fullScreen
+                self.present(mainTabBarController, animated: true)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: "Your info is invalid or you don't have an account", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true)
+            }
+        }
     }
 }
 
