@@ -28,4 +28,20 @@ class AuthenticationManager {
     var isValid = false
     var authenticationState: AuthenticationState = .unauthenticated
     var user: User?
+    
+    func signInWith(email: String, password: String) async -> Bool {
+        authenticationState = .authenticating
+        
+        do {
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            user = authResult.user
+            print("User \(authResult.user.uid) signed in")
+            authenticationState = .authenticated
+            return true
+        } catch {
+            print(error)
+            authenticationState = .unauthenticated
+            return false
+        }
+    }
 }
