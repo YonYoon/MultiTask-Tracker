@@ -44,4 +44,20 @@ class AuthenticationManager {
             return false
         }
     }
+    
+    func signUpWith(email: String, password: String) async -> Bool {
+        authenticationState = .authenticating
+        
+        do {
+            let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+            user = authResult.user
+            print("User \(authResult.user.uid) signed in")
+            authenticationState = .authenticated
+            return true
+        } catch {
+            print(error)
+            authenticationState = .unauthenticated
+            return false
+        }
+    }
 }
