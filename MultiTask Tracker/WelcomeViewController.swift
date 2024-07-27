@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
@@ -14,7 +13,6 @@ class WelcomeViewController: UIViewController {
     let emailField = MTTextField(placeholderText: "Enter your email")
     let passwordField = MTTextField(placeholderText: "Enter your password")
     let saveButton = UIButton()
-    var user: User? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
