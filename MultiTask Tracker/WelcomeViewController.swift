@@ -11,8 +11,8 @@ import FirebaseAuth
 class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
     let welcomeImageView = UIImageView(image: UIImage(named: "welcomeImage"))
-    let emailField = UITextField()
-    let passwordField = UITextField()
+    let emailField = MTTextField(placeholderText: "Enter your email")
+    let passwordField = MTTextField(placeholderText: "Enter your password")
     let saveButton = UIButton()
     var user: User? = nil
 
@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController {
         
         configureWelcomeMessageLabel()
         configureWelcomeImage()
-        configureNameField()
+        configureEmailField()
         configurePasswordField()
         configureSaveButton()
     }
@@ -59,26 +59,9 @@ class WelcomeViewController: UIViewController {
     }
     
     // FIXME: Text field is hidden under the keyboard
-    func configureNameField() {
+    func configureEmailField() {
         view.addSubview(emailField)
-        emailField.translatesAutoresizingMaskIntoConstraints = false
-        
-        emailField.layer.cornerRadius = 25
-        emailField.layer.borderWidth = 3
-        // FIXME: Border color doesn't change with theme
-        emailField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
-        
-        emailField.autocapitalizationType = .none
-        emailField.textColor = .label
-        emailField.textAlignment = .center
-        emailField.font = UIFont.preferredFont(forTextStyle: .title3)
-        emailField.adjustsFontSizeToFitWidth = true
-        emailField.minimumFontSize = 12
-        
-        emailField.autocorrectionType = .no
-        emailField.returnKeyType = .done
-        emailField.placeholder = "Enter your email"
-        
+                
         NSLayoutConstraint.activate([
             emailField.topAnchor.constraint(equalTo: welcomeImageView.bottomAnchor, constant: 48),
             emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
@@ -89,23 +72,6 @@ class WelcomeViewController: UIViewController {
     
     func configurePasswordField() {
         view.addSubview(passwordField)
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        
-        passwordField.layer.cornerRadius = 25
-        passwordField.layer.borderWidth = 3
-        // FIXME: Border color doesn't change with theme
-        passwordField.layer.borderColor = UIColor.label.resolvedColor(with: self.traitCollection).cgColor
-        
-        passwordField.autocapitalizationType = .none
-        passwordField.textColor = .label
-        passwordField.textAlignment = .center
-        passwordField.font = UIFont.preferredFont(forTextStyle: .title3)
-        passwordField.adjustsFontSizeToFitWidth = true
-        passwordField.minimumFontSize = 12
-        
-        passwordField.autocorrectionType = .no
-        passwordField.returnKeyType = .done
-        passwordField.placeholder = "Enter your password"
         
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15),
