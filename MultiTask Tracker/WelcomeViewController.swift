@@ -28,7 +28,7 @@ class WelcomeViewController: UIViewController {
     func configureWelcomeMessageLabel() {
         view.addSubview(welcomeMessageLabel)
         welcomeMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-        welcomeMessageLabel.text = "🎉Welcome to Multitask Tracker"
+        welcomeMessageLabel.text = "🎉Welcome to MultiTask Tracker"
         welcomeMessageLabel.textAlignment = .center
         // FIXME: Add support for dynamic type
         welcomeMessageLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
