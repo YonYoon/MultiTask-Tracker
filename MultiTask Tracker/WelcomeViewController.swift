@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     let welcomeImageView = UIImageView(image: UIImage(named: "welcomeImage"))
     let emailField = MTTextField(placeholderText: "Enter your email")
     let passwordField = MTTextField(placeholderText: "Enter your password")
-    let saveButton = UIButton()
+    let loginButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,22 +80,22 @@ class WelcomeViewController: UIViewController {
     }
     
     func configureSaveButton() {
-        view.addSubview(saveButton)
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
         
-        saveButton.backgroundColor = .accent
-        saveButton.setTitle("Login", for: .normal)
-        saveButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        saveButton.layer.cornerRadius = 25
-        saveButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = .accent
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        loginButton.layer.cornerRadius = 25
+        loginButton.setTitleColor(.white, for: .normal)
         
-        saveButton.addTarget(self, action: #selector(authenticate), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(authenticate), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
-            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -69),
-            saveButton.heightAnchor.constraint(equalToConstant: 46),
-            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -69),
+            loginButton.heightAnchor.constraint(equalToConstant: 46),
+            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
     
