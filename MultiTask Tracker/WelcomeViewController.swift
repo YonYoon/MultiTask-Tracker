@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     let mascotImageView = UIImageView(image: UIImage(named: "welcomeImage"))
     let emailField = MTTextField(placeholderText: "Enter your email")
     let passwordField = MTTextField(placeholderText: "Enter your password")
-    let loginButton = UIButton()
+    let loginButton = MTButton(title: "Login")
     let stackView = UIStackView()
     let signUpLabel = UILabel()
     let showSignUpButton = UIButton(type: .system)
@@ -89,13 +89,6 @@ class WelcomeViewController: UIViewController {
     
     func configureLoginButton() {
         view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        loginButton.backgroundColor = .accent
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        loginButton.layer.cornerRadius = 25
-        loginButton.setTitleColor(.white, for: .normal)
         
         loginButton.addTarget(self, action: #selector(authenticate), for: .touchUpInside)
         
