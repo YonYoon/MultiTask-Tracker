@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
     var emailField = UITextField()
     var passwordField = UITextField()
     var confirmPasswordField = UITextField()
-    var signUpButton = UIButton()
+    var signUpButton = MTButton(title: "Sign up")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,13 +77,6 @@ class SignUpViewController: UIViewController {
     
     private func configureSignUpButton() {
         view.addSubview(signUpButton)
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        signUpButton.backgroundColor = .accent
-        signUpButton.setTitle("Sign up", for: .normal)
-        signUpButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        signUpButton.layer.cornerRadius = 25
-        signUpButton.setTitleColor(.white, for: .normal)
         
         signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
         
