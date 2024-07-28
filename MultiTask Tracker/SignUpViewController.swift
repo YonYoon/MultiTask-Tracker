@@ -104,6 +104,22 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        guard let confirmationPassword = confirmPasswordField.text, !confirmationPassword.isEmpty else {
+            print("No confirmation password")
+            let alertController = UIAlertController(title: "Error", message: "Please write your confirmation password to login", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+            return
+        }
+        
+        if password != confirmationPassword {
+            print("Passwords do not match")
+            let alertController = UIAlertController(title: "Error", message: "Passwords do not match", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+            return
+        }
+        
         Task {
             let isAuthenticated = await AuthenticationManager.shared.signUpWith(email: email, password: password)
             
