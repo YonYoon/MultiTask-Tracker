@@ -77,6 +77,7 @@ class WelcomeViewController: UIViewController {
     
     func configurePasswordField() {
         view.addSubview(passwordField)
+        passwordField.isSecureTextEntry = true
         
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15),
