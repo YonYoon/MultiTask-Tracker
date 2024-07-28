@@ -166,5 +166,5 @@ class WelcomeViewController: UIViewController {
 }
 
 #Preview {
-    WelcomeViewController().view
+    WelcomeViewController()
 }

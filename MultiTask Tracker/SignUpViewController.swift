@@ -145,6 +145,5 @@ class SignUpViewController: UIViewController {
 }
 
 #Preview {
-    let navigationController = UINavigationController(rootViewController: SignUpViewController())
-    return navigationController.view
+    UINavigationController(rootViewController: SignUpViewController())
 }
