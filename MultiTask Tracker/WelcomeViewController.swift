@@ -13,6 +13,9 @@ class WelcomeViewController: UIViewController {
     let emailField = MTTextField(placeholderText: "Enter your email")
     let passwordField = MTTextField(placeholderText: "Enter your password")
     let loginButton = UIButton()
+    let stackView = UIStackView()
+    let signUpLabel = UILabel()
+    let showSignUpButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,10 @@ class WelcomeViewController: UIViewController {
         configureEmailField()
         configurePasswordField()
         configureSaveButton()
+        configureSignUpLabel()
+        configureSignUpButton()
+        configureStackView()
+        layoutSignUp()
     }
     
     func configureWelcomeMessageLabel() {
@@ -95,7 +102,41 @@ class WelcomeViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -69),
             loginButton.heightAnchor.constraint(equalToConstant: 46),
-            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100)
+        ])
+    }
+    
+    private func configureStackView() {
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        
+        stackView.addArrangedSubview(signUpLabel)
+        stackView.addArrangedSubview(showSignUpButton)
+    }
+    
+    private func configureSignUpLabel() {
+        signUpLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        signUpLabel.text = "Don't have an account?"
+        // FIXME: Add support for dynamic type
+        signUpLabel.font = UIFont.preferredFont(forTextStyle: .callout)
+        signUpLabel.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configureSignUpButton() {
+        showSignUpButton.translatesAutoresizingMaskIntoConstraints = false
+        showSignUpButton.setTitle("Sign up", for: .normal)
+    }
+    
+    private func layoutSignUp() {
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -65),
+            stackView.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
