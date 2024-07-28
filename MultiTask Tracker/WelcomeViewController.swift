@@ -9,7 +9,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
-    let welcomeImageView = UIImageView(image: UIImage(named: "welcomeImage"))
+    let mascotImageView = UIImageView(image: UIImage(named: "welcomeImage"))
     let emailField = MTTextField(placeholderText: "Enter your email")
     let passwordField = MTTextField(placeholderText: "Enter your password")
     let loginButton = UIButton()
@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = UIColor(named: "background")
         
         configureWelcomeMessageLabel()
-        configureWelcomeImage()
+        configureMascotImage()
         configureEmailField()
         configurePasswordField()
         configureSaveButton()
@@ -43,16 +43,16 @@ class WelcomeViewController: UIViewController {
         ])
     }
     
-    func configureWelcomeImage() {
-        view.addSubview(welcomeImageView)
-        welcomeImageView.translatesAutoresizingMaskIntoConstraints = false
-        welcomeImageView.contentMode = .scaleAspectFit
+    func configureMascotImage() {
+        view.addSubview(mascotImageView)
+        mascotImageView.translatesAutoresizingMaskIntoConstraints = false
+        mascotImageView.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-            welcomeImageView.topAnchor.constraint(equalTo: welcomeMessageLabel.bottomAnchor, constant: 39),
-            welcomeImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
-            welcomeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -59.85),
-            welcomeImageView.heightAnchor.constraint(equalToConstant: 254.34)
+            mascotImageView.topAnchor.constraint(equalTo: welcomeMessageLabel.bottomAnchor, constant: 39),
+            mascotImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 69),
+            mascotImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -59.85),
+            mascotImageView.heightAnchor.constraint(equalToConstant: 254.34)
         ])
     }
     
@@ -61,7 +61,7 @@ class WelcomeViewController: UIViewController {
         view.addSubview(emailField)
                 
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: welcomeImageView.bottomAnchor, constant: 48),
+            emailField.topAnchor.constraint(equalTo: mascotImageView.bottomAnchor, constant: 48),
             emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
             emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
             emailField.heightAnchor.constraint(equalToConstant: 55)
