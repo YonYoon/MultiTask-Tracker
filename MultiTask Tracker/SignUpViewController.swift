@@ -43,12 +43,14 @@ class SignUpViewController: UIViewController {
     
     private func configurePasswordField() {
         setup(textField: passwordField, placeholderText: "Password")
+        passwordField.isSecureTextEntry = true
         
         passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15).isActive = true
     }
     
     private func configureConfirmPasswordField() {
         setup(textField: confirmPasswordField, placeholderText: "Confirm password")
+        confirmPasswordField.isSecureTextEntry = true
         
         confirmPasswordField.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 15).isActive = true
     }
