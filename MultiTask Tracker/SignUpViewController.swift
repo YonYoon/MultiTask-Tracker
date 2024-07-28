@@ -88,6 +88,14 @@ class SignUpViewController: UIViewController {
     }
     
     @objc private func signUp() {
+        guard let name = nameField.text, !name.isEmpty else {
+            print("No name")
+            let alertController = UIAlertController(title: "Error", message: "Please write your name to login", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+            return
+        }
+        
         guard let email = emailField.text, !email.isEmpty, let password = passwordField.text, !password.isEmpty else {
             print("No email and/or password")
             let alertController = UIAlertController(title: "Error", message: "Please write your email and password to login", preferredStyle: .alert)
