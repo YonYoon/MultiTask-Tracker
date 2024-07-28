@@ -7,44 +7,84 @@
 
 import UIKit
 
-class ToDoViewController: UIViewController {
+class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let registerTextField = RegisterTextField(placeholder: "What would you like to do?")
+    var todos: [ToDoItem] = [ToDoItem(name: "Test todo item")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor (named: "background")
-        setupView()
+        
+        view.addSubview(tableView)
+        constraintTableView()
+        configureTableView()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openAlert))
     }
     
-    // Для того, чтобы при нажатии клавиатура пропадала
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+        @objc func openAlert() {
+            let alert = UIAlertController(title: "Create todo", message: "", preferredStyle: .alert)
+            alert.addTextField()
+            let saveButton = UIAlertAction(title: "Save", style: .default) { _ in
+                if let textName = alert.textFields?.first?.text {
+                    self.addTodo(name: textName)
+            }
+        }
+        alert.addAction(saveButton)
+            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
+            alert.addAction(cancelButton )
+            
+            present(alert, animated: true)
+        }
+    
+    func addTodo(name: String){
+        todos.append(ToDoItem(name: name))
+        tableView.reloadData()
+    }
+    
+    
+    func constraintTableView() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            ])
+    }
+    
+    func configureTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "todoCell")
+        tableView.allowsSelection = false
+    }
+    
+    //MARK: - Table View Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return todos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "todoCell")
+        let todoItem = todos[indexPath.row]
+        
+        cell.textLabel?.text = todoItem.name
+        cell.accessoryType = .checkmark
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
-
-//MARK: - Setting Views
-    private extension ToDoViewController{
-        func setupView(){
-            addSubViews()
-            setupLayout()
-        }
-    }
-
-//MARK: - Setting
-    private extension ToDoViewController{
-        func addSubViews(){
-            view.addSubview(registerTextField)
-        }
-    }
     
-//MARK: - Layout
-    private extension ToDoViewController{
-        func setupLayout(){
-            registerTextField.translatesAutoresizingMaskIntoConstraints = false
-            registerTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            //registerTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true     Пока под вопросом
-            registerTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-            registerTextField.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        }
-    }
