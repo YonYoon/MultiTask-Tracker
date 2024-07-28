@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
         configurePasswordField()
         configureConfirmPasswordField()
         configureSignUpButton()
+        createDismissKeyboardTapGesture()
     }
     
     private func configureNameField() {
@@ -65,6 +66,11 @@ class SignUpViewController: UIViewController {
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
+    }
+    
+    private func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
     
     private func configureSignUpButton() {
