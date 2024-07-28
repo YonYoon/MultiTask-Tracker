@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
         configureMascotImage()
         configureEmailField()
         configurePasswordField()
-        configureSaveButton()
+        configureLoginButton()
         configureSignUpLabel()
         configureSignUpButton()
         configureStackView()
@@ -86,7 +86,7 @@ class WelcomeViewController: UIViewController {
         ])
     }
     
-    func configureSaveButton() {
+    func configureLoginButton() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
