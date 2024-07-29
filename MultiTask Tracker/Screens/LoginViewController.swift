@@ -120,6 +120,8 @@ class LoginViewController: UIViewController {
     private func configureSignUpButton() {
         showSignUpButton.translatesAutoresizingMaskIntoConstraints = false
         showSignUpButton.setTitle("Sign up", for: .normal)
+        
+        showSignUpButton.addTarget(self, action: #selector(switchToSignUp), for: .touchUpInside)
     }
     
     private func layoutSignUp() {
@@ -156,6 +158,15 @@ class LoginViewController: UIViewController {
                 self.present(alertController, animated: true)
             }
         }
+    }
+    
+    @objc private func switchToSignUp() {
+        AuthenticationManager.shared.flow = .signUp
+        
+        let signUpViewController = SignUpViewController()
+        signUpViewController.modalPresentationStyle = .fullScreen
+        signUpViewController.modalTransitionStyle = .crossDissolve
+        self.present(signUpViewController, animated: true)
     }
 }
 
