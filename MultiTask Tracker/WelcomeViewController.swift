@@ -127,7 +127,7 @@ class WelcomeViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -65),
+            stackView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15),
             stackView.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 20)
