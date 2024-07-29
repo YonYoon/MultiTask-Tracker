@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,7 +21,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = LoginViewController()
+
+        if AuthenticationManager.shared.authStateHandle == nil {
+            AuthenticationManager.shared.authStateHandle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+                guard let self else { return }
+                
+                AuthenticationManager.shared.user = user
+                AuthenticationManager.shared.authenticationState = user == nil ? .unauthenticated : .authenticated
+                
+                if AuthenticationManager.shared.authenticationState == .unauthenticated {
+                    self.window?.rootViewController = LoginViewController()
+                } else if AuthenticationManager.shared.authenticationState == .authenticated {
+                    self.window?.rootViewController = MainTabBarController()
+                }
+            }
+        }
+        
         window?.makeKeyAndVisible()
     }
 
