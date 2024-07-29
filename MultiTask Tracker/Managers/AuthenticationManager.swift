@@ -29,6 +29,8 @@ class AuthenticationManager {
     var authenticationState: AuthenticationState = .unauthenticated
     var user: User?
     
+    var authStateHandle: AuthStateDidChangeListenerHandle?
+    
     func signInWith(email: String, password: String) async -> Bool {
         authenticationState = .authenticating
         
