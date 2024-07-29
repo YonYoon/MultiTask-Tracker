@@ -115,6 +115,8 @@ class SignUpViewController: UIViewController {
     private func configureLoginButton() {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Log in", for: .normal)
+        
+        loginButton.addTarget(self, action: #selector(switchToLogin), for: .touchUpInside)
     }
     
     private func layoutLogin() {
@@ -170,11 +172,17 @@ class SignUpViewController: UIViewController {
                 mainTabBarController.modalPresentationStyle = .fullScreen
                 self.present(mainTabBarController, animated: true)
             } else {
-                let alertController = UIAlertController(title: "Error", message: "Your info is invalid or you don't have an account", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Error", message: "Your info is invalid or user with this email already exists", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alertController, animated: true)
             }
         }
+    }
+    
+    @objc private func switchToLogin() {
+        AuthenticationManager.shared.flow = .login
+        
+        self.dismiss(animated: true)
     }
 }
 
