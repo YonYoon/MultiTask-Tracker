@@ -62,4 +62,12 @@ class AuthenticationManager {
             return false
         }
     }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
+    }
 }
