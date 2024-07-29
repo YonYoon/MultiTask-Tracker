@@ -165,8 +165,8 @@ class LoginViewController: UIViewController {
         
         let signUpViewController = SignUpViewController()
         signUpViewController.modalPresentationStyle = .fullScreen
-        signUpViewController.modalTransitionStyle = .crossDissolve
-        self.present(signUpViewController, animated: true)
+
+        self.present(signUpViewController, animated: false)
     }
 }
 

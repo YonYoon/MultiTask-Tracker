@@ -182,7 +182,7 @@ class SignUpViewController: UIViewController {
     @objc private func switchToLogin() {
         AuthenticationManager.shared.flow = .login
         
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
 }
 
