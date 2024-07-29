@@ -69,6 +69,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15289FDA2C57E2F200B1A474 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				155559D52C357660004AAF2F /* LoginViewController.swift */,
+				150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */,
+				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
+				155DF4AB2C4EAFCC00F0E740 /* PomodoroViewController.swift */,
+				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
+				A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		15289FDB2C57E31000B1A474 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				15CE6A912C522F8E00459D01 /* MTUser.swift */,
+				15CE8EF22C54E28E0007761F /* MTTextField.swift */,
+				15289FD62C569E8B00B1A474 /* MTButton.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		155559C52C357660004AAF2F = {
 			isa = PBXGroup;
 			children = (
@@ -91,18 +114,11 @@
 			children = (
 				155559D12C357660004AAF2F /* AppDelegate.swift */,
 				155559D32C357660004AAF2F /* SceneDelegate.swift */,
-				155559D52C357660004AAF2F /* LoginViewController.swift */,
-				150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */,
 				A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */,
-				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
-				155DF4AB2C4EAFCC00F0E740 /* PomodoroViewController.swift */,
+				15289FDA2C57E2F200B1A474 /* Screens */,
 				15CE6A832C50D56200459D01 /* FriendsGuideViewController.swift */,
-				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
 				15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */,
-				A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */,
-				15CE6A912C522F8E00459D01 /* MTUser.swift */,
-				15CE8EF22C54E28E0007761F /* MTTextField.swift */,
-				15289FD62C569E8B00B1A474 /* MTButton.swift */,
+				15289FDB2C57E31000B1A474 /* Custom Views */,
 				15CE8EF12C54E1D10007761F /* Managers */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
