@@ -14,7 +14,7 @@
 		155559DB2C357661004AAF2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155559DA2C357661004AAF2F /* Assets.xcassets */; };
 		155559DE2C357661004AAF2F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 155559DD2C357661004AAF2F /* Base */; };
 		155DF4AC2C4EAFCC00F0E740 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DF4AB2C4EAFCC00F0E740 /* PomodoroViewController.swift */; };
-		15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* WelcomeViewController.swift */; };
+		15A38A902C453F2B00A9CA0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* LoginViewController.swift */; };
 		15CE6A842C50D56200459D01 /* FriendsGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE6A832C50D56200459D01 /* FriendsGuideViewController.swift */; };
 		15CE6A8E2C522D9E00459D01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A8D2C522D9E00459D01 /* FirebaseFirestore */; };
 		15CE6A902C522D9E00459D01 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A8F2C522D9E00459D01 /* FirebaseFirestoreSwift */; };
@@ -37,7 +37,7 @@
 		155559CE2C357660004AAF2F /* MultiTask Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiTask Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		155559D12C357660004AAF2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		155559D32C357660004AAF2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		155559D52C357660004AAF2F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		155559D52C357660004AAF2F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		155559DA2C357661004AAF2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155559DD2C357661004AAF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			children = (
 				155559D12C357660004AAF2F /* AppDelegate.swift */,
 				155559D32C357660004AAF2F /* SceneDelegate.swift */,
-				155559D52C357660004AAF2F /* WelcomeViewController.swift */,
+				155559D52C357660004AAF2F /* LoginViewController.swift */,
 				150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */,
 				A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */,
 				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
@@ -207,7 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */,
+				15A38A902C453F2B00A9CA0E /* LoginViewController.swift in Sources */,
 				15CE6A962C5255EE00459D01 /* UserProfileViewController.swift in Sources */,
 				155559D22C357660004AAF2F /* AppDelegate.swift in Sources */,
 				15CE6A842C50D56200459D01 /* FriendsGuideViewController.swift in Sources */,

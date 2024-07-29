@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  LoginViewController.swift
 //  MultiTask Tracker
 //
 //  Created by Zhansen Zhalel on 03.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class LoginViewController: UIViewController {
     let welcomeMessageLabel = UILabel()
     let mascotImageView = UIImageView(image: UIImage(named: "welcomeImage"))
     let emailField = MTTextField(placeholderText: "Enter your email")
@@ -160,5 +160,5 @@ class WelcomeViewController: UIViewController {
 }
 
 #Preview {
-    WelcomeViewController()
+    LoginViewController()
 }
