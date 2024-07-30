@@ -38,18 +38,21 @@ class SignUpViewController: UIViewController {
     
     private func configureNameField() {
         setup(textField: nameField, placeholderText: "Name")
+        nameField.textContentType = .name
         
         nameField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
     }
     
     private func configureEmailField() {
         setup(textField: emailField, placeholderText: "Email")
+        emailField.textContentType = .emailAddress
         
         emailField.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 15).isActive = true
     }
     
     private func configurePasswordField() {
         setup(textField: passwordField, placeholderText: "Password")
+        passwordField.textContentType = .newPassword
         passwordField.isSecureTextEntry = true
         
         passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15).isActive = true
@@ -57,6 +60,7 @@ class SignUpViewController: UIViewController {
     
     private func configureConfirmPasswordField() {
         setup(textField: confirmPasswordField, placeholderText: "Confirm password")
+        confirmPasswordField.textContentType = .newPassword
         confirmPasswordField.isSecureTextEntry = true
         
         confirmPasswordField.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 15).isActive = true

@@ -66,6 +66,7 @@ class LoginViewController: UIViewController {
     // FIXME: Text field is hidden under the keyboard
     func configureEmailField() {
         view.addSubview(emailField)
+        emailField.textContentType = .emailAddress
                 
         NSLayoutConstraint.activate([
             emailField.topAnchor.constraint(equalTo: mascotImageView.bottomAnchor, constant: 48),
@@ -77,6 +78,7 @@ class LoginViewController: UIViewController {
     
     func configurePasswordField() {
         view.addSubview(passwordField)
+        passwordField.textContentType = .password
         passwordField.isSecureTextEntry = true
         
         NSLayoutConstraint.activate([
