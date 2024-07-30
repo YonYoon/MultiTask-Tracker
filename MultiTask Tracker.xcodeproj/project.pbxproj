@@ -14,6 +14,7 @@
 		15A38A902C453F2B00A9CA0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* WelcomeViewController.swift */; };
 		A6185B662C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185B652C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift */; };
 		A6185B742C53D4AF00A3EBB4 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185B732C53D4AF00A3EBB4 /* ToDoItem.swift */; };
+		A66AF8432C59318F007C8AAC /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AF8422C59318F007C8AAC /* FileManager.swift */; };
 		A6BB45932C3EC63D00B22ABD /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45922C3EC63D00B22ABD /* PomodoroViewController.swift */; };
 		A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */; };
 		A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */; };
@@ -31,6 +32,7 @@
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6185B652C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoWelcomeScreen.swift; sourceTree = "<group>"; };
 		A6185B732C53D4AF00A3EBB4 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		A66AF8422C59318F007C8AAC /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		A6BB45922C3EC63D00B22ABD /* PomodoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
 		A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A6185B732C53D4AF00A3EBB4 /* ToDoItem.swift */,
+				A66AF8422C59318F007C8AAC /* FileManager.swift */,
 			);
 			path = ToDoFunc;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				A6185B662C4E9C8700A3EBB4 /* ToDoWelcomeScreen.swift in Sources */,
 				155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */,
 				A6185B742C53D4AF00A3EBB4 /* ToDoItem.swift in Sources */,
+				A66AF8432C59318F007C8AAC /* FileManager.swift in Sources */,
 				A6BB45932C3EC63D00B22ABD /* PomodoroViewController.swift in Sources */,
 				A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */,
 				A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */,

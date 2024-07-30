@@ -10,7 +10,8 @@ import UIKit
 class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 // Task list storage
-    var todos: [ToDoItem] = [ToDoItem(name: "Test todo item")]
+    var todos: [ToDoItem] = [] // Массив для хранения TODO-элементов
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +20,14 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(tableView)
         constraintTableView()
         configureTableView()
-        
+        todos = PersistenceManager.shared.read()
 // Сreates an "Add" button in the top right corner of the screen that, when clicked, calls the `openAlert` function
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openAlert))
     }
     
     var tableView: UITableView = {
         let tableView = UITableView()
+// FIXME: нужно убрать translaterAuto?...
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -54,6 +56,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     func addTodo(name: String) {
         todos.append(ToDoItem(name: name))
         tableView.reloadData()
+        PersistenceManager.shared.write(list: todos) // Сохранение после добавления
         }
 
 // Create Alert
@@ -95,7 +98,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         if editingStyle == .delete {
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            PersistenceManager.shared.write(list: todos)
         }
     }
 }
-    
