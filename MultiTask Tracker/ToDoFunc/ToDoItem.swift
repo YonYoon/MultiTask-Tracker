@@ -11,8 +11,14 @@ import Foundation
 
 struct ToDoItem: Codable {
     var name: String
-    var isCompleted: Bool = false
-    var id: UUID = UUID()
+    var completed: Bool = false
+    var id: UUID
+
+    init(name: String) {
+        self.name = name
+        self.id = UUID() // Создаем UUID при инициализации
+        self.completed = false
+    }
 }
 
 /* var id: UUID = UUID()

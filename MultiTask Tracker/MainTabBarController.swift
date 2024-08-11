@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupTabs() {
-        let toDo = self.createNavigaiontController(image: UIImage(named: "toDoPic"), viewController: ToDoWelcomeScreen())
+        let toDo = self.createNavigaiontController(image: UIImage(named: "toDoPic"), viewController: ToDoViewController())
         let pomodoro = self.createNavigaiontController(image: UIImage(named: "pomodoroPic"), viewController: PomodoroViewController())
         let friends = self.createNavigaiontController(image: UIImage(named: "friendsPic"), viewController: FriendsViewController())
         let profile = self.createNavigaiontController(image: UIImage(named: "profilePic"), viewController: ProfileViewController())
