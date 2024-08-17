@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 enum AuthenticationState {
     case unauthenticated 
@@ -20,6 +22,7 @@ enum AuthenticationFlow {
 
 class AuthenticationManager {
     static let shared = AuthenticationManager()
+    private let db = Firestore.firestore()
     
     private init() { }
     
@@ -47,14 +50,24 @@ class AuthenticationManager {
         }
     }
     
-    func signUpWith(email: String, password: String) async -> Bool {
+    func signUpWith(username: String, email: String, password: String) async -> Bool {
         authenticationState = .authenticating
         
         do {
             let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-            user = authResult.user
+            
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            try await changeRequest?.commitChanges()
+            
             print("User \(authResult.user.uid) signed in")
             authenticationState = .authenticated
+            
+            try await db.document("users/\(authResult.user.uid)").setData([
+                "name": username,
+                "email": email,
+            ])
+            
             return true
         } catch {
             print(error)
