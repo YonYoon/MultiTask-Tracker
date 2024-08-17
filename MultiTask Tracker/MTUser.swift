@@ -9,5 +9,5 @@ import Foundation
 
 struct MTUser: Codable {
     var name: String
-    var handle: String
+    var email: String
 }
