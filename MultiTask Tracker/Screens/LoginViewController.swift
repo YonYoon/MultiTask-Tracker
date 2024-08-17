@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     let signUpLabel = UILabel()
     let showSignUpButton = UIButton(type: .system)
 
+    // FIXME: Text fields and login button intercept on SE
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background")
