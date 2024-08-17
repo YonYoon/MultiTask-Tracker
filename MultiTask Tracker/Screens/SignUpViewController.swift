@@ -169,7 +169,7 @@ class SignUpViewController: UIViewController {
         }
         
         Task {
-            let isAuthenticated = await AuthenticationManager.shared.signUpWith(email: email, password: password)
+            let isAuthenticated = await AuthenticationManager.shared.signUpWith(username: name, email: email, password: password)
             
             if isAuthenticated {
                 let mainTabBarController = MainTabBarController()
