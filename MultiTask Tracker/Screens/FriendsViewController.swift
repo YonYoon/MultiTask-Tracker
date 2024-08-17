@@ -18,7 +18,6 @@ class FriendsViewController: UIViewController {
         super.viewDidLoad()
 
         configureViewController()
-        configureSearchController()
         configureFriendsList()
     }
     
@@ -37,29 +36,17 @@ class FriendsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         #if DEBUG
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFriendTapped))
-        navigationItem.rightBarButtonItem = addButton
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchFriendTapped))
+        navigationItem.rightBarButtonItem = searchButton
         #endif
         
         friends = PersistenceManager.shared.read()
     }
         
-    @objc func addFriendTapped() {
-        friends.append(MTUser(name: "Test", handle: "test"))
-        db.document("users/username").setData([
-            "name": "John",
-            "handle": "@john"
-        ])
-        PersistenceManager.shared.write(friends: friends)
-        friendsList.reloadData()
-    }
-    
-    private func configureSearchController() {
-        let searchController = UISearchController()
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "Search for a username"
-        navigationItem.searchController = searchController
+    @objc func searchFriendTapped() {
+        // TODO: present friend search
+        let destinationViewController = FriendSearchViewController()
+        navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
     private func configureFriendsList() {
@@ -73,16 +60,13 @@ class FriendsViewController: UIViewController {
     }
 }
 
-extension FriendsViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO: - Update search results
-    }
-}
-
 extension FriendsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friends = PersistenceManager.shared.read()
-        return friends.count
+//        friends = PersistenceManager.shared.read()
+//        return friends.count
+        
+        // TODO: Get list of friends from firebase
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
