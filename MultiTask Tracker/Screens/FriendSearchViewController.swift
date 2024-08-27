@@ -8,22 +8,31 @@
 import UIKit
 
 class FriendSearchViewController: UIViewController {
+    var searchField = MTTextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        
+        configureSearchField()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureSearchField() {
+        view.addSubview(searchField)
+        
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.autocorrectionType = .no
+        searchField.autocapitalizationType = .none
+        searchField.placeholder = "Username"
+        
+        NSLayoutConstraint.activate([
+            searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            searchField.heightAnchor.constraint(equalToConstant: 55)
+        ])
     }
-    */
+}
 
 }
