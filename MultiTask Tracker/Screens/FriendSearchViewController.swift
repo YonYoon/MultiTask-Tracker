@@ -35,4 +35,6 @@ class FriendSearchViewController: UIViewController {
     }
 }
 
+#Preview {
+    FriendSearchViewController()
 }
