@@ -11,6 +11,7 @@
 		15188E682C708933002EB21A /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15188E672C708933002EB21A /* FriendSearchViewController.swift */; };
 		15289FD72C569E8B00B1A474 /* MTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15289FD62C569E8B00B1A474 /* MTButton.swift */; };
 		153156C42C81F86100B35C53 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C32C81F86100B35C53 /* FriendProfileViewController.swift */; };
+		153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C52C81F8C200B35C53 /* MTImageView.swift */; };
 		155559D22C357660004AAF2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D12C357660004AAF2F /* AppDelegate.swift */; };
 		155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D32C357660004AAF2F /* SceneDelegate.swift */; };
 		155559DB2C357661004AAF2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155559DA2C357661004AAF2F /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		15188E672C708933002EB21A /* FriendSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		15289FD62C569E8B00B1A474 /* MTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTButton.swift; sourceTree = "<group>"; };
 		153156C32C81F86100B35C53 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
+		153156C52C81F8C200B35C53 /* MTImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTImageView.swift; sourceTree = "<group>"; };
 		155559CE2C357660004AAF2F /* MultiTask Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiTask Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		155559D12C357660004AAF2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		155559D32C357660004AAF2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */,
 				15CE6A912C522F8E00459D01 /* MTUser.swift */,
 				153156C32C81F86100B35C53 /* FriendProfileViewController.swift */,
+				153156C52C81F8C200B35C53 /* MTImageView.swift */,
 				15289FDB2C57E31000B1A474 /* Custom Views */,
 				15CE8EF12C54E1D10007761F /* Managers */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
@@ -233,6 +236,7 @@
 				15CE6A962C5255EE00459D01 /* UserProfileViewController.swift in Sources */,
 				155559D22C357660004AAF2F /* AppDelegate.swift in Sources */,
 				15CE6A842C50D56200459D01 /* FriendsGuideViewController.swift in Sources */,
+				153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */,
 				A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */,
 				A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */,
 				15289FD72C569E8B00B1A474 /* MTButton.swift in Sources */,
