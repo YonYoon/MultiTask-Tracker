@@ -8,13 +8,17 @@
 import UIKit
 
 class MTImageView: UIImageView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    let placeholderImage = UIImage(systemName: "person.crop.square.fill")
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
     }
-    */
-
+    
+    private func configure() {
+        layer.cornerRadius = 10
+        clipsToBounds = true
+        image = placeholderImage
+        translatesAutoresizingMaskIntoConstraints = false
+    }
 }
