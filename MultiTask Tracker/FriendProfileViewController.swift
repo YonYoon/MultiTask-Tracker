@@ -10,6 +10,7 @@ import UIKit
 class FriendProfileViewController: UIViewController {
     let avatarImageView = MTImageView(frame: .zero)
     let usernameLabel = UILabel()
+    var addFriendButton = UIButton()
     
     var user: MTUser!
     
@@ -74,4 +75,30 @@ class FriendProfileViewController: UIViewController {
             usernameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+    
+    private func configureAddFriendButton() {
+        view.addSubview(addFriendButton)
+        addFriendButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        addFriendButton.configuration = UIButton.Configuration.tinted()
+        addFriendButton.addTarget(self, action: #selector(addToFriends), for: .touchUpInside)
+        addFriendButton.setTitle("Add", for: .normal)
+        addFriendButton.setImage(.init(systemName: "plus"), for: .normal)
+        addFriendButton.configuration?.imagePadding = 5
+        
+        NSLayoutConstraint.activate([
+            addFriendButton.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor),
+            addFriendButton.heightAnchor.constraint(equalToConstant: 44),
+            addFriendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            addFriendButton.widthAnchor.constraint(equalToConstant: 90)
+        ])
+    }
+    
+    @objc private func addToFriends() {
+        // TODO: Implement function
+    }
+}
+
+#Preview {
+    FriendProfileViewController(user: MTUser(name: "John", email: "john@icloud.com"))
 }
