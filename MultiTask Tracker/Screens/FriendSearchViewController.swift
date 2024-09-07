@@ -11,6 +11,9 @@ class FriendSearchViewController: UIViewController {
     var searchField = MTTextField()
     var searchButton = UIButton()
     var profileView = UIView()
+    var user: MTUser!
+    
+    var profileViewController = FriendProfileViewController(user: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +24,13 @@ class FriendSearchViewController: UIViewController {
         configureSearchField()
         configureSearchButton()
         configureProfileView()
+        configureProfileViewController()
+        profileViewController.contentUnavailableConfiguration = UIContentUnavailableConfiguration.empty()
     }
     
     private func configureSearchField() {
         view.addSubview(searchField)
+        searchField.delegate = self
         
         searchField.translatesAutoresizingMaskIntoConstraints = false
         searchField.autocorrectionType = .no
@@ -40,7 +46,7 @@ class FriendSearchViewController: UIViewController {
     }
     
     private func configureSearchButton() {
-        searchButton = UIButton.systemButton(with: UIImage(systemName: "magnifyingglass")!, target: self, action: #selector(configureProfileViewController))
+        searchButton = UIButton.systemButton(with: UIImage(systemName: "magnifyingglass")!, target: self, action: #selector(loadUser))
         view.addSubview(searchButton)
         
         searchButton.translatesAutoresizingMaskIntoConstraints = false
@@ -68,16 +74,33 @@ class FriendSearchViewController: UIViewController {
         ])
     }
     
-    @objc private func configureProfileViewController() {
-        let profileViewController = FriendProfileViewController(user: MTUser(name: "Zhanserik", email: "test@nu.edu.kz"))
-        
+    private func configureProfileViewController() {
         addChild(profileViewController)
         profileView.addSubview(profileViewController.view)
         profileViewController.view.frame = profileView.bounds
         profileViewController.didMove(toParent: self)
     }
+    
+    @objc private func loadUser() {
+        profileViewController.contentUnavailableConfiguration = UIContentUnavailableConfiguration.loading()
+        Task {
+            user = await NetworkManager.shared.getUser(withName: searchField.text!)
+            
+            if let user {
+                profileViewController.user = user
+            }
+            profileViewController.setNeedsUpdateContentUnavailableConfiguration()
+        }
+    }
 }
 
 #Preview {
     FriendSearchViewController()
+}
+
+extension FriendSearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loadUser()
+        return true
+    }
 }
