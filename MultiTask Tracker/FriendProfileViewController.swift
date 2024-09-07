@@ -24,9 +24,22 @@ class FriendProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        var config: UIContentUnavailableConfiguration?
+        if user == nil {
+            config = .search()
+            config?.image = .init(systemName: "magnifyingglass")
+            config?.text = "Couldn't find this user"
+            print("made config")
+        } else {
+            configureAvatarImageView()
+            configureUsernameLabel()
+            configureAddFriendButton()
+        }
         
-        configureAvatarImageView()
-        configureUsernameLabel()
+        contentUnavailableConfiguration = config
     }
     
     private func configureAvatarImageView() {
