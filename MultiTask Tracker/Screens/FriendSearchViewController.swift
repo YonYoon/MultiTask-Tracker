@@ -9,7 +9,8 @@ import UIKit
 
 class FriendSearchViewController: UIViewController {
     var searchField = MTTextField()
-    var searchButton = MTButton()
+    var searchButton = UIButton.systemButton(with: UIImage(systemName: "magnifyingglass")!, target: self, action: #selector(configureProfileViewController))
+    var profileView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,8 @@ class FriendSearchViewController: UIViewController {
         
         searchButton.translatesAutoresizingMaskIntoConstraints = false
         searchButton.setTitle("Search", for: .normal)
+        searchButton.configuration = UIButton.Configuration.filled()
+        searchButton.configuration?.cornerStyle = .capsule
         
         NSLayoutConstraint.activate([
             searchButton.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 15),
