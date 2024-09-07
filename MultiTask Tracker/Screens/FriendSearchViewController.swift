@@ -20,6 +20,7 @@ class FriendSearchViewController: UIViewController {
         
         configureSearchField()
         configureSearchButton()
+        configureProfileView()
     }
     
     private func configureSearchField() {
@@ -52,6 +53,27 @@ class FriendSearchViewController: UIViewController {
             searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchButton.heightAnchor.constraint(equalToConstant: 55)
         ])
+    }
+    
+    private func configureProfileView() {
+        view.addSubview(profileView)
+        profileView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            profileView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 15),
+            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    @objc private func configureProfileViewController() {
+        let profileViewController = FriendProfileViewController(user: MTUser(name: "Zhanserik", email: "test@nu.edu.kz"))
+        
+        addChild(profileViewController)
+        profileView.addSubview(profileViewController.view)
+        profileViewController.view.frame = profileView.bounds
+        profileViewController.didMove(toParent: self)
     }
 }
 
