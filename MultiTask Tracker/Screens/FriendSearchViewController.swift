@@ -9,7 +9,7 @@ import UIKit
 
 class FriendSearchViewController: UIViewController {
     var searchField = MTTextField()
-    var searchButton = UIButton.systemButton(with: UIImage(systemName: "magnifyingglass")!, target: self, action: #selector(configureProfileViewController))
+    var searchButton = UIButton()
     var profileView = UIView()
 
     override func viewDidLoad() {
@@ -40,6 +40,7 @@ class FriendSearchViewController: UIViewController {
     }
     
     private func configureSearchButton() {
+        searchButton = UIButton.systemButton(with: UIImage(systemName: "magnifyingglass")!, target: self, action: #selector(configureProfileViewController))
         view.addSubview(searchButton)
         
         searchButton.translatesAutoresizingMaskIntoConstraints = false
