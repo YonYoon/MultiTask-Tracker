@@ -16,7 +16,7 @@ class FriendSearchViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         
         configureSearchField()
         configureSearchButton()
