@@ -33,7 +33,6 @@ class FriendProfileViewController: UIViewController {
             config = .search()
             config?.image = .init(systemName: "magnifyingglass")
             config?.text = "Couldn't find this user"
-            print("made config")
         } else {
             configureAvatarImageView()
             configureUsernameLabel()
