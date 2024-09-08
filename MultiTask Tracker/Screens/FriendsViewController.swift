@@ -42,9 +42,9 @@ class FriendsViewController: UIViewController {
     }
         
     @objc func searchFriendTapped() {
-        // TODO: present friend search
-        let destinationViewController = FriendSearchViewController()
-        navigationController?.pushViewController(destinationViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: FriendSearchViewController())
+        let destinationViewController = navigationController
+        present(destinationViewController, animated: true)
     }
     
     private func configureFriendsList() {
