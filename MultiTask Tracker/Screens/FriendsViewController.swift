@@ -35,10 +35,8 @@ class FriendsViewController: UIViewController {
         navigationItem.title = "Friends"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        #if DEBUG
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchFriendTapped))
         navigationItem.rightBarButtonItem = searchButton
-        #endif
         
         friends = PersistenceManager.shared.read()
     }
