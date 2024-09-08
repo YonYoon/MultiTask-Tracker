@@ -79,7 +79,7 @@ class FriendSearchViewController: UIViewController {
             profileView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 15),
             profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            profileView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
