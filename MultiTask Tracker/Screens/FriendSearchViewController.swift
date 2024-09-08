@@ -17,15 +17,24 @@ class FriendSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-        navigationItem.largeTitleDisplayMode = .never
         
+        configureViewController()
         configureSearchField()
         configureSearchButton()
         configureProfileView()
         configureProfileViewController()
         profileViewController.contentUnavailableConfiguration = UIContentUnavailableConfiguration.empty()
+    }
+    
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func dismissViewController() {
+        dismiss(animated: true)
     }
     
     private func configureSearchField() {
