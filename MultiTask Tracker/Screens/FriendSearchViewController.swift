@@ -97,7 +97,10 @@ class FriendSearchViewController: UIViewController {
             
             if let user {
                 profileViewController.user = user
+            } else {
+                profileViewController.user = nil
             }
+            
             profileViewController.setNeedsUpdateContentUnavailableConfiguration()
         }
     }
