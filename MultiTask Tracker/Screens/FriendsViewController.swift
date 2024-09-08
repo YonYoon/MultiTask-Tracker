@@ -85,3 +85,9 @@ extension FriendsViewController: UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
+
+#Preview {
+    let navigationController = UINavigationController(rootViewController: FriendsViewController())
+    navigationController.title = "Friends"
+    return navigationController
+}
