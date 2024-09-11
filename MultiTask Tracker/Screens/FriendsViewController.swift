@@ -38,7 +38,8 @@ class FriendsViewController: UIViewController {
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchFriendTapped))
         navigationItem.rightBarButtonItem = searchButton
         
-        friends = PersistenceManager.shared.read()
+        // TODO: - Refactor system of friends
+//        friends = PersistenceManager.shared.read()
     }
         
     @objc func searchFriendTapped() {
