@@ -8,12 +8,12 @@
 import UIKit
 
 class FriendSearchViewController: UIViewController {
+    var isFirstLoad = true
     var searchField = MTTextField()
     var searchButton = UIButton()
-    var profileView = UIView()
-    var user: MTUser!
-    
     var profileViewController = FriendProfileViewController(user: nil)
+    
+    var user: MTUser!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,29 @@ class FriendSearchViewController: UIViewController {
         configureViewController()
         configureSearchField()
         configureSearchButton()
-        configureProfileView()
-        configureProfileViewController()
-        profileViewController.contentUnavailableConfiguration = UIContentUnavailableConfiguration.empty()
+    }
+    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        var config: UIContentUnavailableConfiguration?
+        if user == nil {
+            if isFirstLoad {
+                return
+            }
+            
+            config = .search()
+            config?.image = .init(systemName: "magnifyingglass")
+            config?.text = "Couldn't find this user"
+            
+            searchField.isHidden = true
+            searchButton.isHidden = true
+        } else {
+            config = .empty()
+            profileViewController.view.isHidden = false
+            searchField.isHidden = true
+            searchButton.isHidden = true
+        }
+        
+        contentUnavailableConfiguration = config
     }
     
     private func configureViewController() {
@@ -47,7 +67,7 @@ class FriendSearchViewController: UIViewController {
         searchField.placeholder = "Type your friend's username"
         
         NSLayoutConstraint.activate([
-            searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            searchField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
             searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             searchField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchField.heightAnchor.constraint(equalToConstant: 55)
@@ -67,31 +87,33 @@ class FriendSearchViewController: UIViewController {
             searchButton.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 15),
             searchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            searchButton.heightAnchor.constraint(equalToConstant: 55)
-        ])
-    }
-    
-    private func configureProfileView() {
-        view.addSubview(profileView)
-        profileView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            profileView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 15),
-            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            profileView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            searchButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
     
     private func configureProfileViewController() {
         addChild(profileViewController)
-        profileView.addSubview(profileViewController.view)
-        profileViewController.view.frame = profileView.bounds
+        view.addSubview(profileViewController.view)
         profileViewController.didMove(toParent: self)
+        
+        profileViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            profileViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            profileViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+            profileViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        profileViewController.view.isHidden = true
     }
     
     @objc private func loadUser() {
-        profileViewController.contentUnavailableConfiguration = UIContentUnavailableConfiguration.loading()
+        isFirstLoad = false
+        searchField.isHidden = true
+        searchButton.isHidden = true
+        
+        self.contentUnavailableConfiguration = UIContentUnavailableConfiguration.loading()
+        
         Task {
             user = await NetworkManager.shared.getUser(withName: searchField.text!)
             
