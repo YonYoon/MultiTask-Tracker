@@ -25,24 +25,14 @@ class FriendProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
-        var config: UIContentUnavailableConfiguration?
-        if user == nil {
-            config = .search()
-            config?.image = .init(systemName: "magnifyingglass")
-            config?.text = "Couldn't find this user"
-        } else {
-            configureAvatarImageView()
-            configureUsernameLabel()
-            configureAddFriendButton()
-        }
         
-        contentUnavailableConfiguration = config
+        configureAvatarImageView()
+        configureUsernameLabel()
+        configureAddFriendButton()
     }
     
     private func configureAvatarImageView() {
+        // TODO: - Puts placeholder image, change to user's image OR remove avatars
         view.addSubview(avatarImageView)
         avatarImageView.tintColor = .lightGray
         
