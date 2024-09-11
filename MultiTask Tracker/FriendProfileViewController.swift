@@ -55,7 +55,8 @@ class FriendProfileViewController: UIViewController {
         usernameLabel.minimumScaleFactor = 0.9
         usernameLabel.lineBreakMode = .byTruncatingTail
         
-        usernameLabel.text = user.name
+        // We need empty username to add friendProfileView as a subview to FriendSearchViewController when search returned nil
+        usernameLabel.text = user?.name ?? ""
         
         NSLayoutConstraint.activate([
             usernameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
