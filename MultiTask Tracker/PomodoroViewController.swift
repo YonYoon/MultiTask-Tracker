@@ -5,101 +5,100 @@
 //  Created by Zhansen Zhalel on 22.07.2024.
 //
 
-    import UIKit
+import UIKit
 
-    class PomodoroViewController: UIViewController {
-        
-        var isTimerRunning = false
-        var isTimerPaused = false
-        var selectedTime = 1500 {
-            didSet {
-                checkButtonVisibility()
-                updateSelectedTimeLabel()
-            }
+class PomodoroViewController: UIViewController {
+    var isTimerRunning = false
+    var isTimerPaused = false
+    var selectedTime = 1500 {
+        didSet {
+            checkButtonVisibility()
+            updateSelectedTimeLabel()
         }
-        
-        let whiteView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .white
-            view.layer.cornerRadius = 30
-            return view
-        }()
-        
-        let purpleView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .systemPurple
-            view.layer.cornerRadius = 20
-            view.bringSubviewToFront(view)
-            return view
-        }()
-        
-        let timeLabel: UILabel = {
-            let label = UILabel()
-            label.text = "25 min"
-            label.textColor = .white
-            label.font = .boldSystemFont(ofSize: 20)
-            label.textAlignment = .center
-            return label
-        }()
-        
-        let startButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.backgroundColor = .init(_colorLiteralRed: 240/255, green: 95/255, blue: 106/255, alpha: 1.0)
-            button.tintColor = .white
-            button.titleLabel?.font = .boldSystemFont(ofSize: 20)
-            button.setTitle("Start Focus", for: .normal)
-            button.layer.cornerRadius = 20
-            button.addTarget(self, action: #selector(goToNextPage), for: .touchUpInside)
-            return button
-        }()
-        
-        let increaseButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle(">", for: .normal)
-            button.tintColor = .white
-            button.titleLabel?.font = .systemFont(ofSize: 20)
-            button.addTarget(self, action: #selector(increaseTime), for: .touchUpInside)
-            return button
-        }()
-        
-        let decreaseButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("<", for: .normal)
-            button.tintColor = .white
-            button.titleLabel?.font = .systemFont(ofSize: 20)
-            button.addTarget(self, action: #selector(decreaseTime), for: .touchUpInside)
-            return button
-        }()
-        
-        let statisticsButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.backgroundColor = .init(_colorLiteralRed: 34/255, green: 182/255, blue: 159/255, alpha: 1.0)
-            button.tintColor = .white
-            button.titleLabel?.font = .boldSystemFont(ofSize: 20)
-            button.setTitle("Your Statistics", for: .normal)
-            button.layer.cornerRadius = 20
-            return button
-        }()
-        
-        let focusTimeLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Focus Time"
-            label.textColor = .white
-            label.font = .boldSystemFont(ofSize: 20)
-            label.textAlignment = .left
-            return label
-        }()
-        
-        let pomodoroImageView: UIImageView = {
-            if let image = UIImage(named: "pomodoroImage") {
-                let imageView = UIImageView(image: image)
-                imageView.contentMode = .scaleAspectFit
-                imageView.translatesAutoresizingMaskIntoConstraints = false
-                return imageView
-            } else {
-                return UIImageView() // Возвращаем пустой UIImageView, если изображение не найдено
-            }
-        }()
+    }
+    
+    let whiteView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        return view
+    }()
+    
+    let purpleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemPurple
+        view.layer.cornerRadius = 20
+        view.bringSubviewToFront(view)
+        return view
+    }()
+    
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "25 min"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let startButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .init(_colorLiteralRed: 240/255, green: 95/255, blue: 106/255, alpha: 1.0)
+        button.tintColor = .white
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.setTitle("Start Focus", for: .normal)
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(goToNextPage), for: .touchUpInside)
+        return button
+    }()
+    
+    let increaseButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(">", for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(increaseTime), for: .touchUpInside)
+        return button
+    }()
+    
+    let decreaseButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("<", for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(decreaseTime), for: .touchUpInside)
+        return button
+    }()
+    
+    let statisticsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .init(_colorLiteralRed: 34/255, green: 182/255, blue: 159/255, alpha: 1.0)
+        button.tintColor = .white
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.setTitle("Your Statistics", for: .normal)
+        button.layer.cornerRadius = 20
+        return button
+    }()
+    
+    let focusTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Focus Time"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    let pomodoroImageView: UIImageView = {
+        if let image = UIImage(named: "pomodoroImage") {
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        } else {
+            return UIImageView() // Возвращаем пустой UIImageView, если изображение не найдено
+        }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,14 +182,14 @@
             startButton.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -30),
             startButton.widthAnchor.constraint(equalToConstant: 200),
             startButton.heightAnchor.constraint(equalToConstant: 90)
-            ])
+        ])
     }
     
-        @objc func goToNextPage() {
-            let timerViewController = TimerViewController()
-            timerViewController.selectedTime = selectedTime
-            navigationController?.pushViewController(timerViewController, animated: true)
-        }
+    @objc func goToNextPage() {
+        let timerViewController = TimerViewController()
+        timerViewController.selectedTime = selectedTime
+        navigationController?.pushViewController(timerViewController, animated: true)
+    }
     
     @objc func increaseTime() {
         if selectedTime < 3600 {
