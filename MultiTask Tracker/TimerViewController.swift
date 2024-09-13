@@ -127,6 +127,7 @@ class TimerViewController: UIViewController {
         isTimerRunning = false
         isTimerPaused = true
         pauseButton.setTitle("Tap to Resume", for: .normal)
+        // FIXME: Remove this line, because alarm plays every time timer is paused
         playSound()
         // Здесь можно добавить любые дополнительные действия при остановке таймера
     }
