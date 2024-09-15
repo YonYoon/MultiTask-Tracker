@@ -15,19 +15,47 @@ class PomodoroViewController: UIViewController {
     let tasksList = UITableView()
     let startButton = UIButton()
     let pauseButton = UIButton()
-    let breakButton = UIButton()
+    let switchStateButton = UIButton()
     
     var focusTimer: Timer!
     private var isPaused = false
     
+    private var isFocusState: Bool = true {
+        didSet {
+            focusTimePicker.isHidden = false
+            timerLabel.isHidden = true
+            
+            startButton.isHidden = false
+            pauseButton.isHidden = true
+            switchStateButton.isHidden = true
+            
+            if isFocusState {
+                focusTimerDuration = 60 * 25
+                focusTimePicker.minuteInterval = 5
+                switchStateButton.setTitle("Break", for: .normal)
+                
+                navigationItem.title = "Focus"
+            } else {
+                focusTimerDuration = 60 * 5
+                focusTimePicker.minuteInterval = 1
+                switchStateButton.setTitle("Focus", for: .normal)
+                
+                navigationItem.title = "Break"
+            }
+            focusTimePicker.countDownDuration = focusTimerDuration
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Pomodoro"
+        navigationItem.title = "Focus"
         
         configureFocusTimePicker()
         configureTaskList()
         configureStartButton()
+        configurePauseButton()
+        configureBreakButton()
         configureTimerLabel()
     }
     
@@ -90,6 +118,7 @@ class PomodoroViewController: UIViewController {
     private func configurePauseButton() {
         view.addSubview(pauseButton)
         pauseButton.translatesAutoresizingMaskIntoConstraints = false
+        pauseButton.isHidden = true
         
         pauseButton.configuration = .tinted()
         pauseButton.setTitle("Pause", for: .normal)
@@ -107,21 +136,22 @@ class PomodoroViewController: UIViewController {
     }
     
     private func configureBreakButton() {
-        view.addSubview(breakButton)
-        breakButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(switchStateButton)
+        switchStateButton.translatesAutoresizingMaskIntoConstraints = false
+        switchStateButton.isHidden = true
         
-        breakButton.configuration = .tinted()
-        breakButton.setTitle("Break", for: .normal)
-        breakButton.setImage(.init(systemName: "forward.end.fill"), for: .normal)
-        breakButton.configuration?.imagePadding = 5
+        switchStateButton.configuration = .tinted()
+        switchStateButton.setTitle("Break", for: .normal)
+        switchStateButton.setImage(.init(systemName: "forward.end.fill"), for: .normal)
+        switchStateButton.configuration?.imagePadding = 5
         
-        breakButton.addTarget(self, action: #selector(startBreak), for: .touchUpInside)
+        switchStateButton.addTarget(self, action: #selector(switchState), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            breakButton.bottomAnchor.constraint(equalTo: startButton.bottomAnchor),
-            breakButton.heightAnchor.constraint(equalToConstant: 50),
-            breakButton.leadingAnchor.constraint(equalTo: pauseButton.trailingAnchor, constant: 80),
-            breakButton.widthAnchor.constraint(equalToConstant: 100)
+            switchStateButton.bottomAnchor.constraint(equalTo: startButton.bottomAnchor),
+            switchStateButton.heightAnchor.constraint(equalToConstant: 50),
+            switchStateButton.leadingAnchor.constraint(equalTo: pauseButton.trailingAnchor, constant: 80),
+            switchStateButton.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
@@ -138,18 +168,16 @@ class PomodoroViewController: UIViewController {
         focusTimer.tolerance = 0.2
 
         startButton.isHidden = true
+        pauseButton.isHidden = false
+        switchStateButton.isHidden = false
         
         // Configure stack view with pause button and break button
-        configurePauseButton()
-        configureBreakButton()
     }
     
-    // TODO: IN FUTURE implement going break phase
     @objc private func fireTimer() {
         if focusTimerDuration == 0 {
-            startBreak()
+            switchState()
             playSound()
-            // Go to break phase
         } else {
             focusTimerDuration -= 1
             timerLabel.text = DateComponentsFormatter().string(from: focusTimerDuration)
@@ -172,8 +200,9 @@ class PomodoroViewController: UIViewController {
         }
     }
     
-    @objc private func startBreak() {
+    @objc private func switchState() {
         focusTimer.invalidate()
+        isFocusState.toggle()
     }
     
     private func playSound() {
