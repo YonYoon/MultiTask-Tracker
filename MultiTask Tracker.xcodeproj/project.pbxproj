@@ -20,7 +20,6 @@
 		155DF4AC2C4EAFCC00F0E740 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DF4AB2C4EAFCC00F0E740 /* PomodoroViewController.swift */; };
 		159009872C91E70A003FE7C2 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 159009862C91E70A003FE7C2 /* sound.mp3 */; };
 		15A38A902C453F2B00A9CA0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155559D52C357660004AAF2F /* LoginViewController.swift */; };
-		15CE6A842C50D56200459D01 /* FriendsGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE6A832C50D56200459D01 /* FriendsGuideViewController.swift */; };
 		15CE6A8E2C522D9E00459D01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A8D2C522D9E00459D01 /* FirebaseFirestore */; };
 		15CE6A902C522D9E00459D01 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A8F2C522D9E00459D01 /* FirebaseFirestoreSwift */; };
 		15CE6A922C522F8E00459D01 /* MTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE6A912C522F8E00459D01 /* MTUser.swift */; };
@@ -52,7 +51,6 @@
 		155559DF2C357661004AAF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		155DF4AB2C4EAFCC00F0E740 /* PomodoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
 		159009862C91E70A003FE7C2 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
-		15CE6A832C50D56200459D01 /* FriendsGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsGuideViewController.swift; sourceTree = "<group>"; };
 		15CE6A912C522F8E00459D01 /* MTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTUser.swift; sourceTree = "<group>"; };
 		15CE6A932C523B6800459D01 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +77,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152899B52C970FF6008EDD4F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */,
+				153156C32C81F86100B35C53 /* FriendProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		152899B62C971018008EDD4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15CE8EF22C54E28E0007761F /* MTTextField.swift */,
+				15289FD62C569E8B00B1A474 /* MTButton.swift */,
+				153156C52C81F8C200B35C53 /* MTImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		152899B72C97103A008EDD4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15CE6A912C522F8E00459D01 /* MTUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		15289FDA2C57E2F200B1A474 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,13 +118,13 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		15289FDB2C57E31000B1A474 /* Custom Views */ = {
+		15289FDB2C57E31000B1A474 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				15CE8EF22C54E28E0007761F /* MTTextField.swift */,
-				15289FD62C569E8B00B1A474 /* MTButton.swift */,
+				152899B52C970FF6008EDD4F /* View Controllers */,
+				152899B62C971018008EDD4F /* Views */,
 			);
-			path = "Custom Views";
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		155559C52C357660004AAF2F = {
@@ -122,17 +147,13 @@
 		155559D02C357660004AAF2F /* MultiTask Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				152899B72C97103A008EDD4F /* Model */,
+				15CE8EF12C54E1D10007761F /* Managers */,
 				155559D12C357660004AAF2F /* AppDelegate.swift */,
 				155559D32C357660004AAF2F /* SceneDelegate.swift */,
 				A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */,
 				15289FDA2C57E2F200B1A474 /* Screens */,
-				15CE6A832C50D56200459D01 /* FriendsGuideViewController.swift */,
-				15CE6A952C5255EE00459D01 /* UserProfileViewController.swift */,
-				15CE6A912C522F8E00459D01 /* MTUser.swift */,
-				153156C32C81F86100B35C53 /* FriendProfileViewController.swift */,
-				153156C52C81F8C200B35C53 /* MTImageView.swift */,
-				15289FDB2C57E31000B1A474 /* Custom Views */,
-				15CE8EF12C54E1D10007761F /* Managers */,
+				15289FDB2C57E31000B1A474 /* Custom */,
 				159009852C91D7D4003FE7C2 /* Resources */,
 				155559DA2C357661004AAF2F /* Assets.xcassets */,
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
@@ -250,7 +271,6 @@
 				15A38A902C453F2B00A9CA0E /* LoginViewController.swift in Sources */,
 				15CE6A962C5255EE00459D01 /* UserProfileViewController.swift in Sources */,
 				155559D22C357660004AAF2F /* AppDelegate.swift in Sources */,
-				15CE6A842C50D56200459D01 /* FriendsGuideViewController.swift in Sources */,
 				153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */,
 				A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */,
 				A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */,
