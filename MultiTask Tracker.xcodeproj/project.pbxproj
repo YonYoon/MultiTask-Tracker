@@ -158,6 +158,7 @@
 				15394C7D2C8C2E8700C469E9 /* NetworkManager.swift */,
 			);
 			path = Managers;
+		};
 		159009852C91D7D4003FE7C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
