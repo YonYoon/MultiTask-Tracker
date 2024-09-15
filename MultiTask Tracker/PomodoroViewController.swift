@@ -47,6 +47,11 @@ class PomodoroViewController: UIViewController {
         ])
     }
     
+    // TODO: !!! Implement task list
+    private func configureTaskList() {
+        
+    }
+    
     private func configureStartButton() {
         view.addSubview(startButton)
         startButton.translatesAutoresizingMaskIntoConstraints = false
@@ -66,22 +71,19 @@ class PomodoroViewController: UIViewController {
         ])
     }
     
-    private func configureBreakButton() {
-        view.addSubview(breakButton)
-        breakButton.translatesAutoresizingMaskIntoConstraints = false
+    private func configureTimerLabel() {
+        view.addSubview(timerLabel)
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        timerLabel.isHidden = true
         
-        breakButton.configuration = .tinted()
-        breakButton.setTitle("Break", for: .normal)
-        breakButton.setImage(.init(systemName: "forward.end.fill"), for: .normal)
-        breakButton.configuration?.imagePadding = 5
-        
-        breakButton.addTarget(self, action: #selector(startBreak), for: .touchUpInside)
+        timerLabel.font = .monospacedDigitSystemFont(ofSize: 80, weight: .black)
+        timerLabel.textAlignment = .center
         
         NSLayoutConstraint.activate([
-            breakButton.bottomAnchor.constraint(equalTo: startButton.bottomAnchor),
-            breakButton.heightAnchor.constraint(equalToConstant: 50),
-            breakButton.leadingAnchor.constraint(equalTo: pauseButton.trailingAnchor, constant: 80),
-            breakButton.widthAnchor.constraint(equalToConstant: 100)
+            timerLabel.centerYAnchor.constraint(equalTo: focusTimePicker.centerYAnchor),
+            timerLabel.heightAnchor.constraint(equalToConstant: 100),
+            timerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            timerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -104,22 +106,26 @@ class PomodoroViewController: UIViewController {
         ])
     }
     
-    private func configureTimerLabel() {
-        view.addSubview(timerLabel)
-        timerLabel.translatesAutoresizingMaskIntoConstraints = false
-        timerLabel.isHidden = true
+    private func configureBreakButton() {
+        view.addSubview(breakButton)
+        breakButton.translatesAutoresizingMaskIntoConstraints = false
         
-        timerLabel.font = .monospacedDigitSystemFont(ofSize: 80, weight: .black)
-        timerLabel.textAlignment = .center
+        breakButton.configuration = .tinted()
+        breakButton.setTitle("Break", for: .normal)
+        breakButton.setImage(.init(systemName: "forward.end.fill"), for: .normal)
+        breakButton.configuration?.imagePadding = 5
+        
+        breakButton.addTarget(self, action: #selector(startBreak), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            timerLabel.centerYAnchor.constraint(equalTo: focusTimePicker.centerYAnchor),
-            timerLabel.heightAnchor.constraint(equalToConstant: 100),
-            timerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            timerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            breakButton.bottomAnchor.constraint(equalTo: startButton.bottomAnchor),
+            breakButton.heightAnchor.constraint(equalToConstant: 50),
+            breakButton.leadingAnchor.constraint(equalTo: pauseButton.trailingAnchor, constant: 80),
+            breakButton.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
+    // TODO: ! Wrap pause and break button in StackView
     @objc private func startTimer() {
         focusTimerDuration = focusTimePicker.countDownDuration
         timerLabel.text = DateComponentsFormatter().string(from: focusTimerDuration)
@@ -133,9 +139,21 @@ class PomodoroViewController: UIViewController {
 
         startButton.isHidden = true
         
-        // TODO: Configure stack view with pause button and break button
+        // Configure stack view with pause button and break button
         configurePauseButton()
         configureBreakButton()
+    }
+    
+    // TODO: IN FUTURE implement going break phase
+    @objc private func fireTimer() {
+        if focusTimerDuration == 0 {
+            startBreak()
+            playSound()
+            // Go to break phase
+        } else {
+            focusTimerDuration -= 1
+            timerLabel.text = DateComponentsFormatter().string(from: focusTimerDuration)
+        }
     }
     
     @objc private func pauseTimer() {
@@ -156,21 +174,6 @@ class PomodoroViewController: UIViewController {
     
     @objc private func startBreak() {
         focusTimer.invalidate()
-    }
-    
-    private func configureTaskList() {
-        // TODO: Implement task list
-    }
-    
-    @objc private func fireTimer() {
-        if focusTimerDuration == 0 {
-            startBreak()
-            playSound()
-            // TODO: IN FUTURE Go to break phase
-        } else {
-            focusTimerDuration -= 1
-            timerLabel.text = DateComponentsFormatter().string(from: focusTimerDuration)
-        }
     }
     
     private func playSound() {
