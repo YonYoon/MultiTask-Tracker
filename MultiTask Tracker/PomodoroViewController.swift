@@ -131,7 +131,6 @@ class PomodoroViewController: UIViewController {
         focusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         focusTimer.tolerance = 0.2
 
-        // TODO: Replace start button with pause button, cancel button and break button
         startButton.isHidden = true
         
         // TODO: Configure stack view with pause button and break button
