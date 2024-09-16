@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		150DD5BF2C550C8E003442A7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */; };
 		15188E682C708933002EB21A /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15188E672C708933002EB21A /* FriendSearchViewController.swift */; };
+		152899B92C971557008EDD4F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899B82C971557008EDD4F /* Reminder.swift */; };
+		152899BF2C973415008EDD4F /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899BE2C973415008EDD4F /* Date+Today.swift */; };
 		15289FD72C569E8B00B1A474 /* MTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15289FD62C569E8B00B1A474 /* MTButton.swift */; };
 		153156C42C81F86100B35C53 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C32C81F86100B35C53 /* FriendProfileViewController.swift */; };
 		153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C52C81F8C200B35C53 /* MTImageView.swift */; };
@@ -29,7 +31,7 @@
 		15CE6A9A2C535DC800459D01 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE6A992C535DC800459D01 /* FirebaseAuth */; };
 		15CE6A9C2C53820100459D01 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE6A9B2C53820100459D01 /* AuthenticationManager.swift */; };
 		15CE8EF32C54E28E0007761F /* MTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE8EF22C54E28E0007761F /* MTTextField.swift */; };
-		A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */; };
+		A6BB45952C3EC65200B22ABD /* ReminderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45942C3EC65200B22ABD /* ReminderListViewController.swift */; };
 		A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */; };
 		A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */; };
 		A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		15188E672C708933002EB21A /* FriendSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
+		152899B82C971557008EDD4F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		152899BE2C973415008EDD4F /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
 		15289FD62C569E8B00B1A474 /* MTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTButton.swift; sourceTree = "<group>"; };
 		153156C32C81F86100B35C53 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		153156C52C81F8C200B35C53 /* MTImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTImageView.swift; sourceTree = "<group>"; };
@@ -57,7 +61,7 @@
 		15CE6A972C52988300459D01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15CE6A9B2C53820100459D01 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		15CE8EF22C54E28E0007761F /* MTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTextField.swift; sourceTree = "<group>"; };
-		A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		A6BB45942C3EC65200B22ABD /* ReminderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewController.swift; sourceTree = "<group>"; };
 		A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A6BB459A2C3EC6E400B22ABD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				15CE6A912C522F8E00459D01 /* MTUser.swift */,
+				152899B82C971557008EDD4F /* Reminder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,7 +114,7 @@
 			children = (
 				155559D52C357660004AAF2F /* LoginViewController.swift */,
 				150DD5BE2C550C8E003442A7 /* SignUpViewController.swift */,
-				A6BB45942C3EC65200B22ABD /* ToDoViewController.swift */,
+				A6BB45942C3EC65200B22ABD /* ReminderListViewController.swift */,
 				A6BB45962C3EC66600B22ABD /* FriendsViewController.swift */,
 				A6BB45982C3EC67D00B22ABD /* ProfileViewController.swift */,
 				15188E672C708933002EB21A /* FriendSearchViewController.swift */,
@@ -159,6 +164,7 @@
 				155559DC2C357661004AAF2F /* LaunchScreen.storyboard */,
 				155559DF2C357661004AAF2F /* Info.plist */,
 				15CE6A972C52988300459D01 /* GoogleService-Info.plist */,
+				152899BE2C973415008EDD4F /* Date+Today.swift */,
 			);
 			path = "MultiTask Tracker";
 			sourceTree = "<group>";
@@ -274,19 +280,21 @@
 				153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */,
 				A6BB459B2C3EC6E400B22ABD /* MainTabBarController.swift in Sources */,
 				A6BB45992C3EC67D00B22ABD /* ProfileViewController.swift in Sources */,
+				152899BF2C973415008EDD4F /* Date+Today.swift in Sources */,
 				15289FD72C569E8B00B1A474 /* MTButton.swift in Sources */,
 				155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */,
 				15CE6A9C2C53820100459D01 /* AuthenticationManager.swift in Sources */,
 				155DF4AC2C4EAFCC00F0E740 /* PomodoroViewController.swift in Sources */,
 				150DD5BF2C550C8E003442A7 /* SignUpViewController.swift in Sources */,
 				15394C7E2C8C2E8700C469E9 /* NetworkManager.swift in Sources */,
+				152899B92C971557008EDD4F /* Reminder.swift in Sources */,
 				A6BB45972C3EC66600B22ABD /* FriendsViewController.swift in Sources */,
 				153156C42C81F86100B35C53 /* FriendProfileViewController.swift in Sources */,
 				15CE6A922C522F8E00459D01 /* MTUser.swift in Sources */,
 				15CE6A942C523B6800459D01 /* PersistenceManager.swift in Sources */,
 				15188E682C708933002EB21A /* FriendSearchViewController.swift in Sources */,
 				15CE8EF32C54E28E0007761F /* MTTextField.swift in Sources */,
-				A6BB45952C3EC65200B22ABD /* ToDoViewController.swift in Sources */,
+				A6BB45952C3EC65200B22ABD /* ReminderListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
