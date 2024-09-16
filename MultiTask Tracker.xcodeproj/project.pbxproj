@@ -11,6 +11,8 @@
 		15188E682C708933002EB21A /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15188E672C708933002EB21A /* FriendSearchViewController.swift */; };
 		152899B92C971557008EDD4F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899B82C971557008EDD4F /* Reminder.swift */; };
 		152899BF2C973415008EDD4F /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899BE2C973415008EDD4F /* Date+Today.swift */; };
+		152899C12C97FB05008EDD4F /* ReminderDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899C02C97FB05008EDD4F /* ReminderDoneButton.swift */; };
+		152899C32C97FB89008EDD4F /* ReminderListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152899C22C97FB89008EDD4F /* ReminderListViewController+Actions.swift */; };
 		15289FD72C569E8B00B1A474 /* MTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15289FD62C569E8B00B1A474 /* MTButton.swift */; };
 		153156C42C81F86100B35C53 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C32C81F86100B35C53 /* FriendProfileViewController.swift */; };
 		153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153156C52C81F8C200B35C53 /* MTImageView.swift */; };
@@ -42,6 +44,8 @@
 		15188E672C708933002EB21A /* FriendSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		152899B82C971557008EDD4F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		152899BE2C973415008EDD4F /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
+		152899C02C97FB05008EDD4F /* ReminderDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDoneButton.swift; sourceTree = "<group>"; };
+		152899C22C97FB89008EDD4F /* ReminderListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+Actions.swift"; sourceTree = "<group>"; };
 		15289FD62C569E8B00B1A474 /* MTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTButton.swift; sourceTree = "<group>"; };
 		153156C32C81F86100B35C53 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		153156C52C81F8C200B35C53 /* MTImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTImageView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			children = (
 				152899B52C970FF6008EDD4F /* View Controllers */,
 				152899B62C971018008EDD4F /* Views */,
+				152899C02C97FB05008EDD4F /* ReminderDoneButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				155559DF2C357661004AAF2F /* Info.plist */,
 				15CE6A972C52988300459D01 /* GoogleService-Info.plist */,
 				152899BE2C973415008EDD4F /* Date+Today.swift */,
+				152899C22C97FB89008EDD4F /* ReminderListViewController+Actions.swift */,
 			);
 			path = "MultiTask Tracker";
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A38A902C453F2B00A9CA0E /* LoginViewController.swift in Sources */,
+				152899C12C97FB05008EDD4F /* ReminderDoneButton.swift in Sources */,
 				15CE6A962C5255EE00459D01 /* UserProfileViewController.swift in Sources */,
 				155559D22C357660004AAF2F /* AppDelegate.swift in Sources */,
 				153156C62C81F8C200B35C53 /* MTImageView.swift in Sources */,
@@ -285,6 +292,7 @@
 				155559D42C357660004AAF2F /* SceneDelegate.swift in Sources */,
 				15CE6A9C2C53820100459D01 /* AuthenticationManager.swift in Sources */,
 				155DF4AC2C4EAFCC00F0E740 /* PomodoroViewController.swift in Sources */,
+				152899C32C97FB89008EDD4F /* ReminderListViewController+Actions.swift in Sources */,
 				150DD5BF2C550C8E003442A7 /* SignUpViewController.swift in Sources */,
 				15394C7E2C8C2E8700C469E9 /* NetworkManager.swift in Sources */,
 				152899B92C971557008EDD4F /* Reminder.swift in Sources */,

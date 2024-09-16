@@ -17,10 +17,12 @@ class ReminderListViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         
         configureCollectionView()
         configureDataSource()
-        loadReminders()
+        updateSnapshot()
     }
     
     private func configureCollectionView() {
@@ -38,13 +40,6 @@ class ReminderListViewController: UIViewController {
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
     
-    private func loadReminders() {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(reminders.map { $0.id })
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration {
             (cell: UICollectionViewListCell, indexPath: IndexPath, id: Reminder.ID) in
@@ -58,6 +53,8 @@ class ReminderListViewController: UIViewController {
             
             var doneButtonConfiguration = self.doneButtonConfiguration(for: reminder)
             doneButtonConfiguration.tintColor = .accent
+            cell.accessibilityCustomActions = [self.doneButtonAccessibilityAction(for: reminder)]
+            cell.accessibilityValue = reminder.isComplete ? self.reminderCompletedValue : self.reminderNotCompletedValue
             cell.accessories = [.customView(configuration: doneButtonConfiguration), .disclosureIndicator()]
             
             let backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
@@ -73,7 +70,9 @@ class ReminderListViewController: UIViewController {
         let symbolName = reminder.isComplete ? "circle.fill" : "circle"
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
-        let button = UIButton()
+        let button = ReminderDoneButton()
+        button.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
+        button.id = reminder.id
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(
             customView: button, placement: .leading(displayed: .always))
@@ -81,6 +80,13 @@ class ReminderListViewController: UIViewController {
 }
 
 extension ReminderListViewController: UICollectionViewDelegate {
+    var reminderCompletedValue: String {
+        NSLocalizedString("Completed", comment: "Reminder completed value")
+    }
+    var reminderNotCompletedValue: String {
+        NSLocalizedString("Not completed", comment: "Reminder not completed value")
+    }
+    
     func reminder(withId id: Reminder.ID) -> Reminder {
         let index = reminders.indexOfReminder(withId: id)
         return reminders[index]
@@ -91,4 +97,35 @@ extension ReminderListViewController: UICollectionViewDelegate {
         let index = reminders.indexOfReminder(withId: reminder.id)
         reminders[index] = reminder
     }
+    
+    func completeReminder(withId id: Reminder.ID) {
+        var reminder = reminder(withId: id)
+        reminder.isComplete.toggle()
+        updateReminder(reminder)
+        updateSnapshot(reloading: [id])
+    }
+    
+    func updateSnapshot(reloading ids: [Reminder.ID] = []) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(reminders.map { $0.id })
+        if !ids.isEmpty {
+            snapshot.reloadItems(ids)
+        }
+        dataSource.apply(snapshot)
+    }
+    
+    private func doneButtonAccessibilityAction(for reminder: Reminder) -> UIAccessibilityCustomAction {
+        let name = NSLocalizedString("Toggle completion", comment: "Reminder done button accessibility label")
+        let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
+            self?.completeReminder(withId: reminder.id)
+            return true
+        }
+        return action
+    }
+}
+
+#Preview {
+    let navigationController = UINavigationController(rootViewController: ReminderListViewController())
+    return navigationController
 }
